@@ -7,11 +7,14 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/activityMainTb"
+        android:id="@+id/activityMainToolbar"
         android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_height="wrap_content"/>
-
+        app:title="文件列表"
+        app:popupTheme="@style/OverflowMenuStyle"
+        app:titleTextColor="@color/white" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,22 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!--改变toolbar菜单图标颜色-->
+        <item name="android:textColorSecondary">@color/white</item>
+        <!--toolbar菜单popup弹出风格-->
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+    </style>
+
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <!--设置popup背景色-->
+        <item name="android:colorBackground">@color/white</item>
+        <!--设置popup位置在toolbar下-->
+        <item name="overlapAnchor">false</item>
     </style>
 
 </resources>

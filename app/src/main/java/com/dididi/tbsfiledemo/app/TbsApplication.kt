@@ -13,10 +13,6 @@ import com.tencent.smtt.sdk.QbSdk
 
 class TbsApplication : Application() {
 
-    companion object {
-        const val TAG = "TbsApplication"
-    }
-
     override fun onCreate() {
         super.onCreate()
         //非wifi环境下也能下载x5内核
@@ -27,7 +23,7 @@ class TbsApplication : Application() {
             }
 
             override fun onViewInitFinished(p0: Boolean) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
         })
     }

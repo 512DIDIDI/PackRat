@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_PARAMETER")
+
 package com.dididi.tbsfiledemo.utils
 
 
@@ -12,6 +14,7 @@ class FileUtil {
 
         /**
          * 获取文件类型
+         * 如果是文件类型返回folder，否则返回后缀名
          */
         fun getFileType(fileName: String) = if (!fileName.contains(".")) {
             "folder"
@@ -20,7 +23,7 @@ class FileUtil {
         }
 
         /**
-         * 获取文件名
+         * 获取文件名(针对android路径)
          */
         fun getFileName(filePath: String) = filePath.substring(filePath.lastIndexOf("/") + 1)
 

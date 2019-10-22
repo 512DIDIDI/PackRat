@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TbsFileDemo</string>
+    <string name="search">Search</string>
+    <string name="setting">Setting</string>
 </resources>
