@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--图标大小-->
+    <dimen name="normalIconSize">24dp</dimen>
+    <!--超小文字大小-->
+    <dimen name="tinyTextSize">10sp</dimen>
+    <!--提示文字大小-->
+    <dimen name="textSmallSize">12sp</dimen>
+    <!--普通按钮文字大小-->
+    <dimen name="textNormalSize">14sp</dimen>
+    <dimen name="buttonTextSize">14sp</dimen>
+    <!--快速入口图标大小-->
+    <dimen name="entryIconSize">40dp</dimen>
+    <!--搜索框高度-->
+    <dimen name="searchBarSize">40dp</dimen>
+    <!--普通标题文字大小-->
+    <dimen name="normalTitleSize">16sp</dimen>
+    <!--toolbar文字大小-->
+    <dimen name="toolBarTextSize">20sp</dimen>
+    <!--大标题文字大小-->
+    <dimen name="bigTitleSize">24sp</dimen>
+    <!--底部导航栏高度-->
+    <dimen name="bottomBarSize">48dp</dimen>
+    <!--底部导航栏图标上部间距-->
+    <dimen name="bottomBarTopNormalGap">8dp</dimen>
+    <!--底部导航栏选中图标上部间距-->
+    <dimen name="bottomBarTopSelectGap">6dp</dimen>
+    <!--底部导航栏文字下部间距-->
+    <dimen name="bottomBarBottomGap">6dp</dimen>
+    <!--appbar高度-->
+    <dimen name="appBarSize">48dp</dimen>
+    <!--大头像大小-->
+    <dimen name="bigAvatarSize">64dp</dimen>
+    <!--小头像大小-->
+    <dimen name="smallAvatarSize">40dp</dimen>
+    <!--卡片间距-->
+    <dimen name="cardViewGap">8dp</dimen>
+    <!--分割线上下留白-->
+    <dimen name="dividerGap">8dp</dimen>
+    <!--普通元素留白-->
+    <dimen name="elementGap">16dp</dimen>
+    <!--屏幕左右留白-->
+    <dimen name="screenLRGap">16dp</dimen>
+    <!--文字左边距-->
+    <dimen name="textLeftGap">72dp</dimen>
+</resources>

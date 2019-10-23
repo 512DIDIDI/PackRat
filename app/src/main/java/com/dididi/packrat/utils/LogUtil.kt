@@ -1,7 +1,7 @@
-package com.dididi.tbsfiledemo.utils
+package com.dididi.packrat.utils
 
 import android.util.Log
-import com.dididi.tbsfiledemo.BuildConfig
+import com.dididi.packrat.BuildConfig
 
 
 /**
@@ -12,7 +12,7 @@ import com.dididi.tbsfiledemo.BuildConfig
 
 class LogUtil {
     companion object {
-        private const val TAG = "TbsFileDemo"
+        private const val TAG = "PackRat"
         private const val LOG_MAX_LENGTH = 2000
         private var debug = BuildConfig.DEBUG
         fun d(tips: String) {

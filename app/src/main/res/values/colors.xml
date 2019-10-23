@@ -4,4 +4,26 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#ffffff</color>
+    <color name="backgroundColorWhite">#ffffff</color>
+    <color name="backgroundColorGray">#E0E0E0</color>
+    <color name="toolbarColor">#454553</color>
+    <color name="tabNormalColor">#454553</color>
+    <color name="tabPressColor">#ffffff</color>
+    <color name="buttonPressColor">#769fcd</color>
+    <color name="buttonNormalColor">#b9d7ea</color>
+    <color name="buttonNormalColorRed">#FF4364</color>
+    <color name="textColorBlack">#212121</color>
+    <color name="textColorDark">#454553</color>
+    <color name="textColorGray">#59606d</color>
+    <color name="textColorTight">#757a79</color>
+    <color name="textColorLight">#f7fbfc</color>
+    <color name="textColorWhite">#ffffff</color>
+    <color name="textColorHint">#BDBDBD</color>
+    <color name="textColorIcon">#757575</color>
+    <color name="textColorRed">#ee2b27</color>
+    <color name="dividerColor">#E0E0E0</color>
+    <color name="weChatColor">#1AAD19</color>
+
+    <drawable name="list_item_press_color">#E0E0E0</drawable>
+    <drawable name="list_item_normal_color">#ffffff</drawable>
 </resources>

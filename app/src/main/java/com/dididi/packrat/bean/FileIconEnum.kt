@@ -1,4 +1,4 @@
-package com.dididi.tbsfiledemo.bean
+package com.dididi.packrat.bean
 
 
 /**

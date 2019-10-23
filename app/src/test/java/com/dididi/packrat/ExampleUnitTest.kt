@@ -1,4 +1,4 @@
-package com.dididi.tbsfiledemo
+package com.dididi.packrat
 
 import org.junit.Test
 

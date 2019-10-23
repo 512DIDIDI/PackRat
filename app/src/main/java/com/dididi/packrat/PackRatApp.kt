@@ -1,7 +1,7 @@
-package com.dididi.tbsfiledemo.app
+package com.dididi.packrat
 
 import android.app.Application
-import com.dididi.tbsfiledemo.utils.LogUtil
+import com.dididi.packrat.utils.LogUtil
 import com.tencent.smtt.sdk.QbSdk
 
 
@@ -11,7 +11,7 @@ import com.tencent.smtt.sdk.QbSdk
  * @describe
  */
 
-class TbsApplication : Application() {
+class PackRatApp : Application() {
 
     override fun onCreate() {
         super.onCreate()

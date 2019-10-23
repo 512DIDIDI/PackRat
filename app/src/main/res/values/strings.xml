@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">TbsFileDemo</string>
+    <string name="app_name">PackRat</string>
     <string name="search">Search</string>
     <string name="setting">Setting</string>
+    <string name="home">home</string>
+    <string name="me">me</string>
 </resources>
