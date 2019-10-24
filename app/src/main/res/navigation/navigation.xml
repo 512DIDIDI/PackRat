@@ -3,16 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/collect">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.dididi.packrat.fragment.HomeFragment"
-        android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/collect"
+        android:name="com.dididi.packrat.fragment.CollectFragment"
+        android:label="CollectFragment"
+        tools:layout="@layout/fragment_collect" />
 
     <fragment
-        android:id="@+id/meFragment"
+        android:id="@+id/todoList"
+        android:name="com.dididi.packrat.fragment.TodoListFragment"
+        android:label="TodoListFragment"
+        tools:layout="@layout/fragment_todolist"/>
+
+    <fragment
+        android:id="@+id/me"
         android:name="com.dididi.packrat.fragment.MeFragment"
         android:label="MeFragment"
         tools:layout="@layout/fragment_me" />

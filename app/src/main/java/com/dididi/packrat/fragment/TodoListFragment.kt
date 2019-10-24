@@ -8,12 +8,13 @@ import com.dididi.packrat.R
 /**
  * @author dididi(叶超)
  * @email yc512yc@163.com
- * @since 23/10/2019
+ * @since 24/10/2019
  * @describe
  */
 
-class HomeFragment :BaseFragment(){
-    override fun setLayout() = R.layout.fragment_home
+class TodoListFragment :BaseFragment(){
+
+    override fun setLayout() = R.layout.fragment_todolist
 
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
     }

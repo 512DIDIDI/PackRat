@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".activity.RootActivity">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/activityRootBottomBar"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/activityRootToolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/toolbarColor"
-        app:itemHorizontalTranslationEnabled="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottombar" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu_toolbar"
+        app:titleTextColor="@color/white"
+        app:title="@string/app_name" />
 
     <fragment
         android:id="@+id/activityRootFragment"
@@ -22,7 +23,17 @@
         android:layout_height="0dp"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/activityRootBottomBar"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activityRootToolbar"
         app:navGraph="@navigation/navigation" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/activityRootBottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:itemIconTint="@drawable/selector_bottombar"
+        app:itemTextColor="@drawable/selector_bottombar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_bottombar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
