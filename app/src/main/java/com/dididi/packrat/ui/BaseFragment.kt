@@ -1,4 +1,4 @@
-package com.dididi.packrat.fragment
+package com.dididi.packrat.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

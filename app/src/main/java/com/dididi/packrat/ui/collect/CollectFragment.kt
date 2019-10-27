@@ -1,8 +1,9 @@
-package com.dididi.packrat.fragment
+package com.dididi.packrat.ui.collect
 
 import android.os.Bundle
 import android.view.View
 import com.dididi.packrat.R
+import com.dididi.packrat.ui.BaseFragment
 
 
 /**
@@ -12,8 +13,8 @@ import com.dididi.packrat.R
  * @describe
  */
 
-class MeFragment :BaseFragment(){
-    override fun setLayout() = R.layout.fragment_me
+class CollectFragment : BaseFragment(){
+    override fun setLayout() = R.layout.fragment_collect
 
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
     }

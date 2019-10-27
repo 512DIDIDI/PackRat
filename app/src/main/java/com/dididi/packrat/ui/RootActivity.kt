@@ -1,4 +1,4 @@
-package com.dididi.packrat.activity
+package com.dididi.packrat.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
