@@ -1,6 +1,8 @@
 package com.dididi.packrat
 
+import android.annotation.SuppressLint
 import android.app.Application
+import android.content.Context
 import com.dididi.packrat.utils.LogUtil
 import com.tencent.smtt.sdk.QbSdk
 
@@ -12,6 +14,11 @@ import com.tencent.smtt.sdk.QbSdk
  */
 
 class PackRatApp : Application() {
+
+    companion object{
+        @SuppressLint("StaticFieldLeak")
+        lateinit var context:Context
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -26,5 +33,6 @@ class PackRatApp : Application() {
 
             }
         })
+        context = this
     }
 }

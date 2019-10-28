@@ -37,6 +37,9 @@ ext{
 
     //app依赖
     lifecycleVersion = '2.1.0'
+    roomVersion = '2.2.1'
+    retrofitVersion = '2.6.2'
+    coroutinesVersion = '1.3.2'
     appCompatVersion = '1.1.0'
     recyclerViewVersion = '1.0.0'
     constrainLayoutVersion = '1.1.3'

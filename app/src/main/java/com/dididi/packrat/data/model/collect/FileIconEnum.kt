@@ -1,4 +1,4 @@
-package com.dididi.packrat.data
+package com.dididi.packrat.data.model.collect
 
 
 /**
