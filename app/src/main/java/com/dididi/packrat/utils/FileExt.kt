@@ -2,6 +2,7 @@
 
 package com.dididi.packrat.utils
 
+import com.dididi.packrat.R
 import java.io.File
 
 
@@ -26,3 +27,12 @@ fun File.getFileType() = if (!this.getFileName().contains(".")) {
  * @return 返回文件名，带后缀名
  */
 fun File.getFileName() = this.absolutePath.substring(this.absolutePath.lastIndexOf("/") + 1)
+
+fun File.getIcon() = when (this.getFileType()) {
+    "doc", "docx" -> R.mipmap.logo_doc
+    "ppt", "pptx" -> R.mipmap.logo_ppt
+    "xls", "xlsx" -> R.mipmap.logo_xls
+    "txt" -> R.mipmap.logo_txt
+    "pdf" -> R.mipmap.logo_pdf
+    else -> R.mipmap.logo_unknown
+}

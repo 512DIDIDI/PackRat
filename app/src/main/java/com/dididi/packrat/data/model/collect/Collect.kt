@@ -14,5 +14,13 @@ import androidx.room.PrimaryKey
 @Entity
 data class Collect(
     @PrimaryKey(autoGenerate = true)
-    val id:Int
+    val id:Int,
+    //用户名
+    val userId:String,
+    //标题
+    val title:String,
+    //内容
+    val content:BaseCollectContent,
+    //日期
+    val time:Long
 )
