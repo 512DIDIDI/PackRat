@@ -1,19 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemListCollectCv"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginLeft="@dimen/screenLRGap"
-    android:layout_marginRight="@dimen/screenLRGap"
     android:layout_marginTop="@dimen/elementGap"
-    android:padding="@dimen/dividerGap"
+    android:layout_marginRight="@dimen/screenLRGap"
     android:orientation="vertical"
     app:cardCornerRadius="@dimen/cardViewGap">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="@tools:sample/full_names" />
+        android:padding="@dimen/dividerGap">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/itemListCollectTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorDark"
+            android:textSize="@dimen/normalTitleSize"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/full_names" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/itemListCollectMore"
+            android:layout_width="@dimen/normalIconSize"
+            android:layout_height="@dimen/normalIconSize"
+            android:layout_marginStart="@dimen/dividerGap"
+            android:background="@mipmap/more"
+            app:layout_constraintBottom_toBottomOf="@id/itemListCollectTitle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.tencent.smtt.sdk.WebView
+            android:id="@+id/itemListCollectContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dividerGap"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintHeight_max="150dp"
+            app:layout_constraintHeight_min="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemListCollectTitle"
+            tools:background="@tools:sample/backgrounds/scenic" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

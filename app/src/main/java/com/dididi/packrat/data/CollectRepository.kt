@@ -1,10 +1,12 @@
 package com.dididi.packrat.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.dididi.packrat.data.local.CollectDao
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.net.PackRatNetUtil
+import com.dididi.packrat.utils.LogUtil
 
 
 /**
@@ -38,11 +40,19 @@ class CollectRepository private constructor(
             val list = net.fetchCollectList()
             MutableLiveData<List<Collect>>().apply {
                 value = list
-                list.forEach {
-                    collectDao.insert(it)
-                }
+                setCollects(list)
             }
         } else {
             collectDao.getCollectList()
         }
+
+    /**
+     * 设置收藏列表存储入数据库
+     */
+    suspend fun setCollects(collects:List<Collect>){
+        collects.forEach {
+            collectDao.insert(it)
+            LogUtil.debug(it.content)
+        }
+    }
 }

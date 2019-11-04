@@ -40,6 +40,12 @@ class CollectViewModel(private val collectRepository: CollectRepository) : ViewM
         }
     }
 
+    fun setCollects(collects:List<Collect>){
+        launch {
+            collectRepository.setCollects(collects)
+        }
+    }
+
     /**
      * launch函数处理数据前后的流程，加载 清除数据 刷新liveData源数据
      */
