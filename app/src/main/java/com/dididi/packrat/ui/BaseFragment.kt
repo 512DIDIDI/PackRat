@@ -45,6 +45,10 @@ abstract class BaseFragment : Fragment() {
         return rootView
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //需在onViewCreated中定义，否则kotlinx在fragment中无法使用

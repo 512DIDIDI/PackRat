@@ -7,6 +7,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.dididi.packrat.data.model.collect.Collect
+import kotlinx.coroutines.CoroutineScope
 
 
 /**
@@ -28,7 +29,7 @@ abstract class PackRatDatabase : RoomDatabase() {
         @Volatile
         private var instance: PackRatDatabase? = null
 
-        fun getInstance(context: Context) = instance ?: synchronized(this) {
+        fun getInstance(context: Context, scope: CoroutineScope) = instance ?: synchronized(this) {
             instance ?: Room.databaseBuilder(
                 context.applicationContext,
                 PackRatDatabase::class.java,

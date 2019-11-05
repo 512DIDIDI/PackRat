@@ -1,5 +1,6 @@
 package com.dididi.packrat.ui.collect
 
+import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,7 +8,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dididi.packrat.PackRatApp
 import com.dididi.packrat.data.CollectRepository
+import com.dididi.packrat.data.local.PackRatDatabase
 import com.dididi.packrat.data.model.collect.Collect
+import com.dididi.packrat.data.net.PackRatNetUtil
 import kotlinx.coroutines.launch
 
 
@@ -18,16 +21,22 @@ import kotlinx.coroutines.launch
  * @describe 收藏页面的viewModel
  */
 
-class CollectViewModel(private val collectRepository: CollectRepository) : ViewModel() {
+class CollectViewModel(application: Application) : ViewModel() {
 
     //收藏list的LiveData
-    lateinit var collectLiveData: LiveData<List<Collect>>
+    var collectLiveData: LiveData<List<Collect>>? = null
     //数据是否改变
     val dataChangeLiveData = MutableLiveData<Int>()
     //是否加载中
     val isLoading = MutableLiveData<Boolean>()
     //收藏list，供ui adapter刷新数据
     val dataList = arrayListOf<Collect>()
+    private val collectRepository:CollectRepository
+
+    init {
+        val collectDao = PackRatDatabase.getInstance(application,viewModelScope).collectDao()
+        collectRepository = CollectRepository.getInstance(collectDao, PackRatNetUtil.getInstance())
+    }
 
     /**
      * ui获取数据
@@ -36,13 +45,14 @@ class CollectViewModel(private val collectRepository: CollectRepository) : ViewM
         launch {
             //从数据依赖层读取数据
             collectLiveData = collectRepository.getCollects()
-            dataList.addAll(collectLiveData.value!!)
+            dataList.addAll(collectLiveData?.value!!)
         }
     }
 
     fun setCollects(collects:List<Collect>){
         launch {
             collectRepository.setCollects(collects)
+            dataList.addAll(collects)
         }
     }
 
@@ -58,7 +68,7 @@ class CollectViewModel(private val collectRepository: CollectRepository) : ViewM
             isLoading.value = false
         } catch (t: Throwable) {
             t.printStackTrace()
-            Toast.makeText(PackRatApp.context, t.message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(PackRatApp.context, "error", Toast.LENGTH_SHORT).show()
             dataChangeLiveData.value?.plus(1)
             isLoading.value = false
         }

@@ -1,5 +1,6 @@
 package com.dididi.packrat.ui.collect
 
+import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dididi.packrat.data.CollectRepository
@@ -12,10 +13,10 @@ import com.dididi.packrat.data.CollectRepository
  * @describe 收藏ViewModel的工厂类
  */
 
-class CollectViewModelFactory(private val repository: CollectRepository) :
+class CollectViewModelFactory(val application: Application) :
     ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return CollectViewModel(repository) as T
+        return CollectViewModel(application) as T
     }
 }

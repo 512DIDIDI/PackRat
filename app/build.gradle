@@ -48,6 +48,8 @@ dependencies {
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
     kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+    //lottie组件
+    implementation "com.airbnb.android:lottie:$lottieVersion"
     //retrofit组件
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
