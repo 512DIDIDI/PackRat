@@ -22,11 +22,20 @@ android {
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/atomicfu.kotlin_module'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    //jetpack dataBinding
+    dataBinding{
+        enabled true
     }
 }
 

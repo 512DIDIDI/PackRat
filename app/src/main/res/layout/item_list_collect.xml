@@ -6,7 +6,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginLeft="@dimen/screenLRGap"
-    android:layout_marginTop="@dimen/elementGap"
+    android:layout_marginTop="@dimen/dividerGap"
+    android:layout_marginBottom="@dimen/dividerGap"
     android:layout_marginRight="@dimen/screenLRGap"
     android:orientation="vertical"
     app:cardCornerRadius="@dimen/cardViewGap">
@@ -39,11 +40,9 @@
         <com.tencent.smtt.sdk.WebView
             android:id="@+id/itemListCollectContent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_marginTop="@dimen/dividerGap"
             app:layout_constrainedHeight="true"
-            app:layout_constraintHeight_max="150dp"
-            app:layout_constraintHeight_min="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/itemListCollectTitle"
             tools:background="@tools:sample/backgrounds/scenic" />

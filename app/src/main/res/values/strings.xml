@@ -5,4 +5,7 @@
     <string name="collect">收藏</string>
     <string name="me">我</string>
     <string name="list">清单</string>
+    <string name="share">分享</string>
+    <string name="delete">删除</string>
+    <string name="addList">添加到清单</string>
 </resources>

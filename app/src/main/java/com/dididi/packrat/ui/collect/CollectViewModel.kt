@@ -2,10 +2,7 @@ package com.dididi.packrat.ui.collect
 
 import android.app.Application
 import android.widget.Toast
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.dididi.packrat.PackRatApp
 import com.dididi.packrat.data.CollectRepository
 import com.dididi.packrat.data.local.PackRatDatabase
@@ -21,38 +18,37 @@ import kotlinx.coroutines.launch
  * @describe 收藏页面的viewModel
  */
 
-class CollectViewModel(application: Application) : ViewModel() {
+class CollectViewModel(application: Application) : AndroidViewModel(application) {
 
-    //收藏list的LiveData
-    var collectLiveData: LiveData<List<Collect>>? = null
-    //数据是否改变
-    val dataChangeLiveData = MutableLiveData<Int>()
     //是否加载中
     val isLoading = MutableLiveData<Boolean>()
-    //收藏list，供ui adapter刷新数据
-    val dataList = arrayListOf<Collect>()
-    private val collectRepository:CollectRepository
-
-    init {
-        val collectDao = PackRatDatabase.getInstance(application,viewModelScope).collectDao()
-        collectRepository = CollectRepository.getInstance(collectDao, PackRatNetUtil.getInstance())
-    }
+    //数据依赖层
+    private val collectRepository: CollectRepository = CollectRepository.getInstance(
+        PackRatDatabase.getInstance(
+            application,
+            viewModelScope
+        ).collectDao(), PackRatNetUtil.getInstance()
+    )
+    //获取本地存储的收藏数据
+    var collectLiveData = collectRepository.getLocalCollects()
 
     /**
      * ui获取数据
      */
-    fun getCollects() {
+    fun getRemoteCollects() {
         launch {
             //从数据依赖层读取数据
-            collectLiveData = collectRepository.getCollects()
-            dataList.addAll(collectLiveData?.value!!)
+            collectLiveData =
+                collectRepository.getRemoteCollects() as MutableLiveData<List<Collect>>
         }
     }
 
-    fun setCollects(collects:List<Collect>){
+    /**
+     * 存储数据
+     */
+    fun setCollects(collects: List<Collect>) {
         launch {
             collectRepository.setCollects(collects)
-            dataList.addAll(collects)
         }
     }
 
@@ -62,14 +58,11 @@ class CollectViewModel(application: Application) : ViewModel() {
     private fun launch(block: suspend () -> Unit) = viewModelScope.launch {
         try {
             isLoading.value = true
-            dataList.clear()
             block()
-            dataChangeLiveData.value?.plus(1)
             isLoading.value = false
         } catch (t: Throwable) {
             t.printStackTrace()
             Toast.makeText(PackRatApp.context, "error", Toast.LENGTH_SHORT).show()
-            dataChangeLiveData.value?.plus(1)
             isLoading.value = false
         }
     }

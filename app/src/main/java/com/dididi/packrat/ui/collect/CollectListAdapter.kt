@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.dididi.packrat.R
 import com.dididi.packrat.data.model.collect.Collect
+import com.dididi.packrat.utils.DialogUtil
 import com.tencent.smtt.sdk.WebView
 
 
@@ -18,13 +19,13 @@ import com.tencent.smtt.sdk.WebView
  * @author dididi(叶超)
  * @email yc512yc@163.com
  * @since 04/11/2019
- * @describe
+ * @describe 收藏界面recyclerview数据
  */
 
 class CollectListAdapter(val context: Context) :
     RecyclerView.Adapter<CollectListAdapter.ViewHolder>() {
 
-    var collectList = arrayListOf<Collect>()
+    var collectList = emptyList<Collect>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_list_collect, parent, false))
@@ -43,8 +44,11 @@ class CollectListAdapter(val context: Context) :
         val content = itemView.findViewById<WebView>(R.id.itemListCollectContent)
 
         init {
+            title.setOnClickListener {
+                Toast.makeText(context, "点击标题", Toast.LENGTH_SHORT).show()
+            }
             more.setOnClickListener {
-                Toast.makeText(context, "点击更多", Toast.LENGTH_SHORT).show()
+                DialogUtil.showPopupMenu(context, it)
             }
             layout.setOnClickListener {
                 Toast.makeText(context, "点击进入详情页", Toast.LENGTH_SHORT).show()
@@ -52,4 +56,11 @@ class CollectListAdapter(val context: Context) :
 
         }
     }
+
+    fun setData(collectList: List<Collect>) {
+        this.collectList = collectList
+        notifyDataSetChanged()
+    }
+
+
 }

@@ -1,6 +1,5 @@
 package com.dididi.packrat.data
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.dididi.packrat.data.local.CollectDao
@@ -17,8 +16,8 @@ import com.dididi.packrat.utils.LogUtil
  */
 
 class CollectRepository private constructor(
-    private val collectDao: CollectDao,
-    private val net: PackRatNetUtil
+    private var collectDao: CollectDao,
+    private var net: PackRatNetUtil
 ) {
     companion object {
         @Volatile
@@ -32,24 +31,24 @@ class CollectRepository private constructor(
             }
     }
 
+    fun getLocalCollects() = collectDao.getCollectList()
+
     /**
      * 获取收藏列表LiveData
      */
-    suspend fun getCollects() =
-        if (collectDao.getCollectList().value!!.isEmpty()) {
-            val list = net.fetchCollectList()
-            MutableLiveData<List<Collect>>().apply {
-                value = list
-                setCollects(list)
-            }
-        } else {
-            collectDao.getCollectList()
+    suspend fun getRemoteCollects(): LiveData<List<Collect>> {
+        val list = net.fetchCollectList()
+        return MutableLiveData<List<Collect>>().apply {
+            value = list
+            setCollects(list)
         }
+    }
+
 
     /**
      * 设置收藏列表存储入数据库
      */
-    suspend fun setCollects(collects:List<Collect>){
+    suspend fun setCollects(collects: List<Collect>) {
         collects.forEach {
             collectDao.insert(it)
             LogUtil.debug(it.content)

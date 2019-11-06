@@ -19,13 +19,13 @@ import com.dididi.packrat.data.model.collect.Collect
 interface CollectDao {
 
     //获取collect list的liveData数据
-    @Query("SELECT * FROM Collect ORDER BY id ASC")
+    @Query("SELECT * from Collect ORDER BY id ASC")
     fun getCollectList(): LiveData<List<Collect>>
 
     //插入数据 冲突则替换
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(collect: Collect)
 
-    @Query("DELETE FROM Collect")
+    @Query("DELETE from Collect")
     suspend fun deleteAll()
 }
