@@ -22,7 +22,9 @@ class CollectFragment : BaseFragment() {
 
     private lateinit var mCollectAdapter: CollectListAdapter
 
-    private lateinit var viewModel: CollectViewModel
+    private val viewModel by lazy {
+        ViewModelProviders.of(activity!!).get(CollectViewModel::class.java)
+    }
 
     override fun setLayout() = R.layout.fragment_collect
 
@@ -31,7 +33,7 @@ class CollectFragment : BaseFragment() {
         fragmentCollectContentRv.layoutManager = layoutManager
         mCollectAdapter = CollectListAdapter(activity!!)
         fragmentCollectContentRv.adapter = mCollectAdapter
-        viewModel = ViewModelProviders.of(activity!!).get(CollectViewModel::class.java)
+        //获取远程收藏数据
         viewModel.getRemoteCollects()
         observe()
     }
@@ -40,9 +42,11 @@ class CollectFragment : BaseFragment() {
     }
 
     private fun observe() {
+        //观察收藏数据变化
         viewModel.collectLiveData.observe(this, Observer {
-            mCollectAdapter.setData(it)
+            mCollectAdapter.updateData(it)
         })
+        //观察loading值决定是否加载loading框
         viewModel.isLoading.observe(this, Observer {
             if (it) {
                 DialogUtil.showLoading(activity!!)

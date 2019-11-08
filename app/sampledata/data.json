@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "title": "Android Jetpack",
+      "webContent": "https://developer.android.com/jetpack",
+      "textContent": "Jetpack is a suite of libraries, tools, and guidance to help developers write high-quality apps easier. These components help you follow best practices, free you from writing boilerplate code, and simplify complex tasks, so you can focus on the code you care about.\n\nJetpack comprises the androidx.* package libraries, unbundled from the platform APIs. This means that it offers backward compatibility and is updated more frequently than the Android platform, making sure you always have access to the latest and greatest versions of the Jetpack components."
+    },
+    {
+      "title": "Getting started with Android Jetpack",
+      "webContent": "https://developer.android.com/jetpack/docs/getting-started/",
+      "textContent": "Jetpack encompasses a collection of Android libraries that incorporate best practices and provide backwards compatibility in your Android apps.\n\nThe Jetpack guide to app architecture provides an overview of the best practices and recommended architecture to consider as you build your Android app.\n\nThe following sections cover how you can get started using Jetpack components."
+    },
+    {
+      "title": "Guide to app architecture",
+      "webContent": "https://developer.android.com/jetpack/docs/guide",
+      "textContent": "This guide encompasses best practices and recommended architecture for building robust, production-quality apps.\n\nThis page assumes a basic familiarity with the Android Framework. If you are new to Android app development, check out our Developer guides to get started and learn more about the concepts mentioned in this guide.\n\nIf you're interested in app architecture, and would like to see the material in this guide from a Kotlin programming perspective, check out the Udacity course Developing Android Apps with Kotlin."
+    }
+  ]
+}

@@ -43,9 +43,9 @@ abstract class PackRatDatabase : RoomDatabase() {
                         Collect(
                             1,
                             "dididi",
-                            "test",
-                            CollectContentType.WEB.value,
-                            "https://www.douyu.com",
+                            "取消协程的执行",
+                            CollectContentType.TEXT.value,
+                            "在一个长时间运行的应用程序中，你也许需要对你的后台协程进行细粒度的控制。 比如说，一个用户也许关闭了一个启动了协程的界面，那么现在协程的执行结果已经不再被需要了，这时，它应该是可以被取消的。 该 launch 函数返回了一个可以被用来取消运行中的协程的 Job：",
                             222L
                         )
                     )
@@ -64,8 +64,8 @@ abstract class PackRatDatabase : RoomDatabase() {
                             3,
                             "dididi",
                             "hello",
-                            CollectContentType.WEB.value,
-                            "https://www.zhihu.com",
+                            CollectContentType.IMAGE.value,
+                            "",
                             222L
                         )
                     )

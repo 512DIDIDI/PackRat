@@ -1,7 +1,5 @@
 package com.dididi.packrat.data.model.collect
 
-import android.os.Parcelable
-
 
 /**
  * @author dididi(叶超)

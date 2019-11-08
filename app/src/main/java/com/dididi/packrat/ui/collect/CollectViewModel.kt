@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
  * @author dididi(叶超)
  * @email yc512yc@163.com
  * @since 27/10/2019
- * @describe 收藏页面的viewModel
+ * @describe 收藏页面的viewModel,管理数据
  */
 
 class CollectViewModel(application: Application) : AndroidViewModel(application) {
@@ -53,7 +53,7 @@ class CollectViewModel(application: Application) : AndroidViewModel(application)
     }
 
     /**
-     * launch函数处理数据前后的流程，加载 清除数据 刷新liveData源数据
+     * launch函数处理数据前后耗时操作，加载 清除数据 刷新liveData源数据
      */
     private fun launch(block: suspend () -> Unit) = viewModelScope.launch {
         try {
@@ -62,7 +62,7 @@ class CollectViewModel(application: Application) : AndroidViewModel(application)
             isLoading.value = false
         } catch (t: Throwable) {
             t.printStackTrace()
-            Toast.makeText(PackRatApp.context, "error", Toast.LENGTH_SHORT).show()
+            Toast.makeText(PackRatApp.context, t.message, Toast.LENGTH_SHORT).show()
             isLoading.value = false
         }
     }

@@ -2,6 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/top"
+        android:title="@string/top"/>
+
+    <item
         android:id="@+id/addList"
         android:title="@string/addList"/>
 
