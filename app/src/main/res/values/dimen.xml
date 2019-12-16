@@ -30,9 +30,9 @@
     <!--appbar高度-->
     <dimen name="appBarSize">48dp</dimen>
     <!--大头像大小-->
-    <dimen name="bigAvatarSize">64dp</dimen>
+    <dimen name="bigProfileSize">64dp</dimen>
     <!--小头像大小-->
-    <dimen name="smallAvatarSize">40dp</dimen>
+    <dimen name="smallProfileSize">40dp</dimen>
     <!--卡片间距-->
     <dimen name="cardViewGap">8dp</dimen>
     <!--分割线上下留白-->

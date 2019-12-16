@@ -9,5 +9,5 @@ package com.dididi.packrat
  */
 
 object Config{
-    const val BASE_URL = "https://www.baidu.com"
+    const val BASE_URL = "https://www.wanandroid.com"
 }

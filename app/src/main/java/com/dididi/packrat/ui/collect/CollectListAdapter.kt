@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dididi.packrat.R
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.model.collect.CollectContentType
-import com.dididi.packrat.utils.DialogUtil
+import com.dididi.packrat.utils.showPopupMenu
 import com.tencent.smtt.sdk.WebView
 
 
@@ -67,7 +67,7 @@ class CollectListAdapter(val context: Context) :
                 Toast.makeText(context, "点击标题", Toast.LENGTH_SHORT).show()
             }
             more.setOnClickListener {
-                DialogUtil.showPopupMenu(context, it)
+                context.showPopupMenu(it)
                     .setOnMenuItemClickListener(this@CollectListAdapter)
             }
             layout.setOnClickListener {

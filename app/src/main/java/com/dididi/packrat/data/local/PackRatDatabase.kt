@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.model.collect.CollectContentType
-import com.dididi.packrat.utils.LogUtil
+import com.dididi.packrat.utils.log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -70,7 +70,7 @@ abstract class PackRatDatabase : RoomDatabase() {
                         )
                     )
                     collectDao.getCollectList().value?.forEach {
-                        LogUtil.debug("insert:${it.content}")
+                        log("insert:${it.content}")
                     }
                 }
             }

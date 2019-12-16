@@ -1,6 +1,7 @@
 package com.dididi.packrat.data.net
 
 import com.dididi.packrat.Config
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -22,8 +23,9 @@ object ServiceCreator {
         .client(httpClient.build())
         .addConverterFactory(ScalarsConverterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(CoroutineCallAdapterFactory())
 
     private val retrofit = builder.build()
 
-    fun <T> create(serviceClass: Class<T>) = retrofit.create(serviceClass)
+    fun <T> create(serviceClass: Class<T>): T = retrofit.create(serviceClass)
 }

@@ -1,12 +1,14 @@
 package com.dididi.packrat.data.net
 
 import com.dididi.packrat.data.net.api.CollectService
+import com.dididi.packrat.data.net.api.LoginService
 import com.dididi.packrat.data.net.api.MeService
 import com.dididi.packrat.data.net.api.TodoService
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.RuntimeException
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
@@ -33,6 +35,8 @@ class PackRatNetUtil private constructor() {
 
     private val collectService = ServiceCreator.create(CollectService::class.java)
 
+    private val loginService = ServiceCreator.create(LoginService::class.java)
+
     private val todoService = ServiceCreator.create(TodoService::class.java)
 
     private val meService = ServiceCreator.create(MeService::class.java)
@@ -40,8 +44,29 @@ class PackRatNetUtil private constructor() {
     /**
      * 从服务器获取收藏列表
      */
-    suspend fun fetchCollectList() = collectService.getCollect().await()
+    suspend fun fetchCollectList() = collectService.getCollectAsync().await()
 
+    /**
+     * 获取登录结果
+     */
+    suspend fun fetchLoginResult(username: String, password: String) =
+        loginService.loginAsync(username, password).await()
+
+    /**
+     * 获取注册结果
+     */
+    suspend fun fetchRegisterResult(username: String,password: String,repassword:String) =
+        loginService.registerAsync(username, password, repassword).await()
+
+    /**
+     * 登出结果
+     */
+    suspend fun fetchQuitResult() = loginService.quitAsync().await()
+
+    /**
+     * 此方法用于retrofit使用 [Call] 的 [Callback] 回调与协程 [await] 的回调相连
+     * 不过 retrofit 后续提供了[CoroutineCallAdapterFactory]，可返回[Deferred]作为回调
+     */
     private suspend fun <T> Call<T>.await(): T = suspendCoroutine { continuation ->
         enqueue(object : Callback<T> {
             override fun onFailure(call: Call<T>, t: Throwable) {

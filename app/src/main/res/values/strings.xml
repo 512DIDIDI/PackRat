@@ -9,4 +9,26 @@
     <string name="delete">删除</string>
     <string name="addList">添加到清单</string>
     <string name="top">置顶</string>
+    <string name="sign_up">注册</string>
+    <string name="hint_name">请输入你的姓名</string>
+    <string name="hint_email">请输入你的邮箱</string>
+    <string name="hint_password">请输入你的密码</string>
+    <string name="hint_rePassword">请重新输入密码</string>
+    <string name="sign_up_login">已有账号?点击登录</string>
+    <string name="user_sign_in">用户登录</string>
+    <string name="edit_account">请输入你的账户</string>
+    <string name="edit_password">请输入你的密码</string>
+    <string name="sign_in">登录</string>
+    <string name="sign_in_signUP">没有账号?点击注册</string>
+    <string name="user_sign_up">用户注册</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="find_password">找回密码</string>
+    <string name="hint_signUp_email">请输入注册时的邮箱</string>
+    <string name="send_verify">发送验证码</string>
+    <string name="hint_verify">请输入验证码</string>
+    <string name="next_step">下一步</string>
+    <string name="reset_password">重设密码</string>
+    <string name="send">发送</string>
+    <string name="back">返回</string>
+    <string name="made_by_dididi_studio">MADE BY DIDIDI STUDIO</string>
 </resources>

@@ -59,10 +59,13 @@ dependencies {
     kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
     //lottie组件
     implementation "com.airbnb.android:lottie:$lottieVersion"
+    //circleview
+    implementation "de.hdodenhof:circleimageview:$circleviewVersion"
     //retrofit组件
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitCoroutineVersion"
     //协程组件
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"

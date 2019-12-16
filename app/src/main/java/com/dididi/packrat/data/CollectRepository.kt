@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.dididi.packrat.data.local.CollectDao
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.net.PackRatNetUtil
-import com.dididi.packrat.utils.LogUtil
+import com.dididi.packrat.utils.log
 
 
 /**
@@ -51,7 +51,7 @@ class CollectRepository private constructor(
     suspend fun setCollects(collects: List<Collect>) {
         collects.forEach {
             collectDao.insert(it)
-            LogUtil.debug(it.content)
+            log(it.content)
         }
     }
 }

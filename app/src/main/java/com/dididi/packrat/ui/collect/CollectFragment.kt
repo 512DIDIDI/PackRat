@@ -7,7 +7,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dididi.packrat.R
 import com.dididi.packrat.ui.BaseFragment
-import com.dididi.packrat.utils.DialogUtil
+import com.dididi.packrat.utils.dismissAllLoading
+import com.dididi.packrat.utils.showLoading
 import kotlinx.android.synthetic.main.fragment_collect.*
 
 
@@ -49,9 +50,9 @@ class CollectFragment : BaseFragment() {
         //观察loading值决定是否加载loading框
         viewModel.isLoading.observe(this, Observer {
             if (it) {
-                DialogUtil.showLoading(activity!!)
+                activity!!.showLoading()
             } else {
-                DialogUtil.dismissLoading()
+                dismissAllLoading()
             }
         })
     }

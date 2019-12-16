@@ -3,7 +3,7 @@ package com.dididi.packrat
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
-import com.dididi.packrat.utils.LogUtil
+import com.dididi.packrat.utils.log
 import com.tencent.smtt.sdk.QbSdk
 
 
@@ -26,7 +26,7 @@ class PackRatApp : Application() {
         QbSdk.setDownloadWithoutWifi(true)
         QbSdk.initX5Environment(this, object : QbSdk.PreInitCallback {
             override fun onCoreInitFinished() {
-                LogUtil.debug("onCoreInitFinished")
+                log("onCoreInitFinished")
             }
 
             override fun onViewInitFinished(p0: Boolean) {

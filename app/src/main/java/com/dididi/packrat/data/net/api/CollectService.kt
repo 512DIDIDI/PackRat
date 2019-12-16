@@ -1,6 +1,7 @@
 package com.dididi.packrat.data.net.api
 
 import com.dididi.packrat.data.model.collect.Collect
+import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -14,5 +15,5 @@ import retrofit2.http.GET
 
 interface CollectService {
     @GET()
-    fun getCollect():Call<MutableList<Collect>>
+    fun getCollectAsync():Deferred<MutableList<Collect>>
 }
