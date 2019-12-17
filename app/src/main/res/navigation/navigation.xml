@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/me"
-        android:name="com.dididi.packrat.ui.me.MeFragment"
+        android:name="com.dididi.packrat.ui.login.LoginFragment"
         android:label="MeFragment"
         tools:layout="@layout/fragment_me" />
 </navigation>

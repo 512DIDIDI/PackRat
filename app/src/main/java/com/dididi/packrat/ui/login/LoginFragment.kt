@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.dididi.packrat.R
 import com.dididi.packrat.ui.BaseFragment
+import kotlinx.android.synthetic.main.fragment_login.*
 
 
 /**
@@ -16,6 +17,9 @@ class LoginFragment : BaseFragment() {
     override fun setLayout() = R.layout.fragment_login
 
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
+        fragmentLoginEnterSign.setOnClickListener {
+            fragmentLoginEnterSign.playAnimation()
+        }
     }
 
     override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {

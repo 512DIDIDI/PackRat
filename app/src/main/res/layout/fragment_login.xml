@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/backgroundColorGray">
     <!--打开页面时出现的logo-->
     <RelativeLayout
@@ -28,14 +29,15 @@
             android:textColor="@color/textColorBlack"
             android:textSize="@dimen/bigTitleSize" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/fragmentLoginEnterSign"
             android:layout_width="@dimen/bigProfileSize"
             android:layout_height="@dimen/bigProfileSize"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/elementGap"
-            android:src="@mipmap/def_down" />
+            android:scaleType="centerCrop"
+            app:lottie_fileName="pressUp.json"
+            android:layout_marginBottom="@dimen/elementGap" />
 
     </RelativeLayout>
     <!--Sign页面-->
