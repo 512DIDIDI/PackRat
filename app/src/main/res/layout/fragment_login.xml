@@ -6,11 +6,12 @@
     android:background="@color/backgroundColorGray">
     <!--打开页面时出现的logo-->
     <RelativeLayout
+        android:id="@+id/fragmentLoginInitLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/fragmentLoginProfile"
+            android:id="@+id/fragmentLoginLogo"
             android:layout_width="@dimen/bigProfileSize"
             android:layout_height="@dimen/bigProfileSize"
             android:layout_above="@id/fragmentLoginAppName"
@@ -35,8 +36,12 @@
             android:layout_height="@dimen/bigProfileSize"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:visibility="visible"
             android:scaleType="centerCrop"
-            app:lottie_fileName="pressUp.json"
+            app:lottie_colorFilter="@color/textColorBlack"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_fileName="up.json"
             android:layout_marginBottom="@dimen/elementGap" />
 
     </RelativeLayout>
@@ -48,20 +53,20 @@
         android:gravity="center">
         <!--Sign状态时的logo 隐藏 主要用来定位位移后的logo位置-->
         <ImageView
-            android:id="@+id/fragmentLoginSignLogo"
+            android:id="@+id/fragmentLoginFakeLogo"
             android:layout_width="@dimen/bigProfileSize"
             android:layout_height="@dimen/bigProfileSize"
-            android:layout_above="@id/fragmentLoginSignName"
+            android:layout_above="@id/fragmentLoginFakeAppName"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/dividerGap"
             android:alpha="0"
             android:visibility="invisible" />
 
         <TextView
-            android:id="@+id/fragmentLoginSignName"
+            android:id="@+id/fragmentLoginFakeAppName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/FragmentLoginSignLayout"
+            android:layout_above="@id/fragmentLoginSignLayout"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/dividerGap"
             android:alpha="0"
@@ -69,7 +74,7 @@
             android:visibility="invisible" />
         <!--重点在FrameLayout 登录注册找回密码都在此布局下-->
         <FrameLayout
-            android:id="@+id/FragmentLoginSignLayout"
+            android:id="@+id/fragmentLoginSignLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -88,7 +93,7 @@
                 android:visibility="visible">
                 <!--用户登录文字-->
                 <TextView
-                    android:id="@+id/fragmentSignSignInLayoutLogin"
+                    android:id="@+id/fragmentLoginSignInLayoutLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -102,7 +107,7 @@
                     android:id="@+id/fragmentLoginSignInLayoutAccount"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/fragmentSignSignInLayoutLogin"
+                    android:layout_below="@id/fragmentLoginSignInLayoutLogin"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/screenLRGap"
                     android:layout_marginRight="@dimen/screenLRGap"
@@ -425,7 +430,7 @@
             android:id="@+id/fragmentLoginDididi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/FragmentLoginSignLayout"
+            android:layout_below="@id/fragmentLoginSignLayout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/elementGap"
             android:alpha="0"

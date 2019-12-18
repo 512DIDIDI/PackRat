@@ -13,15 +13,15 @@ import android.view.animation.OvershootInterpolator
  * @describe 动画拓展类
  */
 
-enum class Rotate(val value: String) {
+enum class Rotation(val value: String) {
     /**
      * 水平旋转
      */
-    RotateX("rotateX"),
+    RotationX("rotationX"),
     /**
      * 垂直旋转
      */
-    RotateY("rotateY")
+    RotationY("rotationY")
 }
 
 enum class Translation(val value: String) {
@@ -68,10 +68,11 @@ fun View.setTranslationAnimation(
     distance: Float,
     delay: Long = 0,
     duration: Long,
-    isOvershoot: Boolean = true
+    isOvershoot: Boolean = true,
+    strength:Float = 1.5f
 ): Unit = getObjectAnimator(this, translation.value, start, distance, delay, duration).apply {
     if (isOvershoot) {
-        interpolator = OvershootInterpolator(1.5f)
+        interpolator = OvershootInterpolator(strength)
     }
 }.start()
 
@@ -87,9 +88,9 @@ fun View.setAlphaAnimation(
         }
 
         override fun onAnimationEnd(animation: Animator?) {
-            //如果无效，则隐藏时view gone
+            //如果无效，则隐藏时view invisible
             if (!isEnable) {
-                this@setAlphaAnimation.visibility = View.GONE
+                this@setAlphaAnimation.visibility = View.INVISIBLE
             }
         }
 
@@ -107,19 +108,20 @@ fun View.setAlphaAnimation(
 
 /**
  * 设置旋转动画
- * [Rotate]
+ * [Rotation]
  * @param isOvershoot 是否需要回弹效果
  */
 fun View.setRotateAnimation(
-    rotate: Rotate,
+    rotation: Rotation,
     start: Float,
     end: Float,
     delay: Long = 0,
     duration: Long,
-    isOvershoot: Boolean = true
-): Unit = getObjectAnimator(this, rotate.value, start, end, delay, duration).apply {
+    isOvershoot: Boolean = true,
+    strength:Float = 1.5f
+): Unit = getObjectAnimator(this, rotation.value, start, end, delay, duration).apply {
     if (isOvershoot) {
-        interpolator = OvershootInterpolator(1.5f)
+        interpolator = OvershootInterpolator(strength)
     }
 }.start()
 
@@ -130,7 +132,7 @@ fun View.setRotateAnimation(
  * @param behindView 需要显示的view
  */
 fun Context.setFlipAnimation(
-    rotate: Rotate = Rotate.RotateY,
+    rotation: Rotation = Rotation.RotationY,
     backgroundView: View?,
     frontView: View,
     behindView: View
@@ -138,10 +140,10 @@ fun Context.setFlipAnimation(
     setCameraDistance(backgroundView, frontView, behindView)
     //当前显示与背景旋转180并隐藏
     frontView.setAlphaAnimation(1f, 0f, 0, 500, false)
-    backgroundView?.setRotateAnimation(rotate, 0f, 180f, 0, 1000, false)
-    frontView.setRotateAnimation(rotate, 0f, 180f, 0, 1000, false)
+    backgroundView?.setRotateAnimation(rotation, 0f, 180f, 0, 1000, false)
+    frontView.setRotateAnimation(rotation, 0f, 180f, 0, 1000, false)
     //需要显示的view 旋转-180度并显示
-    behindView.setRotateAnimation(rotate, 0f, -180f, 0, 1000, false)
+    behindView.setRotateAnimation(rotation, 0f, -180f, 0, 1000, false)
     behindView.setAlphaAnimation(0f, 1f, 500, 500, true)
 }
 
@@ -164,6 +166,7 @@ fun setMoveDelayAnimation(
     startAlpha: Float,
     endAlpha: Float,
     isEnable: Boolean,
+    strength: Float = 1.5f,
     firstDelay: Long,
     eachDelay: Long,
     eachDuration: Long,
@@ -188,7 +191,8 @@ fun setMoveDelayAnimation(
             getEndPos(this),
             firstDelay,
             eachDuration,
-            true
+            true,
+            strength
         )
         setAlphaAnimation(startAlpha, endAlpha, firstDelay, eachDuration, isEnable)
     }
@@ -201,7 +205,8 @@ fun setMoveDelayAnimation(
             getEndPos(views[i]),
             delay,
             eachDuration,
-            true
+            true,
+            strength
         )
         views[i].setAlphaAnimation(startAlpha, endAlpha, delay, eachDuration, isEnable)
     }
