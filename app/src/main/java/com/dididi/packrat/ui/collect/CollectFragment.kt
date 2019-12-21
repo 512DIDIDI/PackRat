@@ -35,8 +35,9 @@ class CollectFragment : BaseFragment() {
         mCollectAdapter = CollectListAdapter(activity!!)
         fragmentCollectContentRv.adapter = mCollectAdapter
         //获取远程收藏数据
-        viewModel.getRemoteCollects()
+//        viewModel.getRemoteCollects()
         observe()
+
     }
 
     override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {

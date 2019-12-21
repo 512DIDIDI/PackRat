@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
+import androidx.navigation.Navigation
 import com.dididi.packrat.R
 import com.dididi.packrat.ui.BaseFragment
 import com.dididi.packrat.utils.*
@@ -52,8 +53,8 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
             R.id.fragmentLoginSignInLayoutSignUp -> {
                 getSignUpAnimation(fragmentLoginSignInLayout)
             }
-            R.id.fragmentLoginSignInLayoutLogin -> {
-
+            R.id.fragmentLoginSignInLayoutSignIn -> {
+                Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_mainFragment)
             }
             R.id.fragmentLoginSignInLayoutForgetPassword -> {
                 getForgetPasswordAnimation(fragmentLoginSignInLayout)

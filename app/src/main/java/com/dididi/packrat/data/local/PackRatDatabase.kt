@@ -59,16 +59,6 @@ abstract class PackRatDatabase : RoomDatabase() {
                             333L
                         )
                     )
-                    collectDao.insert(
-                        Collect(
-                            3,
-                            "dididi",
-                            "hello",
-                            CollectContentType.IMAGE.value,
-                            "",
-                            222L
-                        )
-                    )
                     collectDao.getCollectList().value?.forEach {
                         log("insert:${it.content}")
                     }
