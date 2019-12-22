@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.PopupMenu
+import androidx.fragment.app.Fragment
 import com.dididi.packrat.R
 
 
@@ -32,6 +33,8 @@ fun Context.showLoading() = Dialog(this, R.style.custom_dialog).apply {
     show()
 }
 
+fun Fragment.showLoading() = this.activity!!.showLoading()
+
 /**
  * 关闭所有弹出框
  */
@@ -47,6 +50,8 @@ fun Context.showPopupMenu(parentView: View) =
         menuInflater.inflate(R.menu.menu_collect_more, menu)
         show()
     }
+
+fun Fragment.showPopupMenu(parentView: View) = this.activity!!.showPopupMenu(parentView)
 
 /**
  * 关闭所有popupmenu

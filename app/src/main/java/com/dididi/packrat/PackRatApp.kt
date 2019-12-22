@@ -26,7 +26,7 @@ class PackRatApp : Application() {
         QbSdk.setDownloadWithoutWifi(true)
         QbSdk.initX5Environment(this, object : QbSdk.PreInitCallback {
             override fun onCoreInitFinished() {
-                log("onCoreInitFinished")
+                log(content = "onCoreInitFinished")
             }
 
             override fun onViewInitFinished(p0: Boolean) {

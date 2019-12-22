@@ -66,6 +66,7 @@ class PackRatNetUtil private constructor() {
     /**
      * 此方法用于retrofit使用 [Call] 的 [Callback] 回调与协程 [await] 的回调相连
      * 不过 retrofit 后续提供了[CoroutineCallAdapterFactory]，可返回[Deferred]作为回调
+     * @Deprecated 引入[com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter]包可以使用Deferred作为回调
      */
     private suspend fun <T> Call<T>.await(): T = suspendCoroutine { continuation ->
         enqueue(object : Callback<T> {

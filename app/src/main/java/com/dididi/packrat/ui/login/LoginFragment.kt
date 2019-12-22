@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.dididi.packrat.R
 import com.dididi.packrat.ui.BaseFragment
@@ -25,9 +27,14 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
         const val minInterval = 500
     }
 
+    private val viewModel by lazy {
+        ViewModelProviders.of(this).get(LoginViewModel::class.java)
+    }
+
     override fun setLayout() = R.layout.fragment_login
 
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
+        observe()
         //滚动监听
         val gestureDetector = GestureDetector(activity!!, EnterLoginGestureListener())
         fragmentLoginInitLayout.setOnTouchListener { v, event ->
@@ -54,7 +61,11 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
                 getSignUpAnimation(fragmentLoginSignInLayout)
             }
             R.id.fragmentLoginSignInLayoutSignIn -> {
-                Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_mainFragment)
+                //调用登录
+                viewModel.login(
+                    fragmentLoginSignInLayoutAccount.text.toString(),
+                    fragmentLoginSignInLayoutPassword.text.toString()
+                )
             }
             R.id.fragmentLoginSignInLayoutForgetPassword -> {
                 getForgetPasswordAnimation(fragmentLoginSignInLayout)
@@ -63,7 +74,12 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
                 getSignInAnimation(fragmentLoginSignUpLayout)
             }
             R.id.fragmentLoginSignUpLayoutSignUp -> {
-
+                //调用注册
+                viewModel.register(
+                    fragmentLoginSignUpLayoutAccount.text.toString(),
+                    fragmentLoginSignUpLayoutPassword.text.toString(),
+                    fragmentLoginSignUpLayoutReenterPassword.text.toString()
+                )
             }
             R.id.fragmentLoginForgetPasswordLayoutBack -> {
                 getSignInAnimation(fragmentLoginForgetPasswordLayout)
@@ -83,6 +99,39 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
             }
         }
     }
+
+    /**
+     * 监听数据变化
+     */
+    private fun observe() {
+        //登录监听
+        viewModel.loginLiveData.observe(this, Observer {
+            if (it.errorCode != 0) {
+                toast(it.errorMsg)
+            } else {
+                Navigation.findNavController(fragmentLoginSignInLayoutSignIn)
+                    .navigate(R.id.action_loginFragment_to_mainFragment)
+            }
+        })
+        //注册监听
+        viewModel.registerLiveData.observe(this, Observer {
+            if (it.errorCode != 0) {
+                toast(it.errorMsg)
+            } else {
+                toast("注册成功，返回登录页登录")
+                getSignInAnimation(fragmentLoginSignUpLayout)
+            }
+        })
+        //loading窗口监听
+        viewModel.isLoading.observe(this, Observer {
+            if (it) {
+                showLoading()
+            } else {
+                dismissAllLoading()
+            }
+        })
+    }
+
 
     /**
      * 入场动画手势

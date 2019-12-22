@@ -11,6 +11,7 @@ import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.model.collect.CollectContentType
 import com.dididi.packrat.utils.log
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
@@ -36,7 +37,7 @@ abstract class PackRatDatabase : RoomDatabase() {
         override fun onOpen(db: SupportSQLiteDatabase) {
             super.onOpen(db)
             instance?.let {
-                scope.launch {
+                scope.launch(Dispatchers.IO) {
                     val collectDao = it.collectDao()
                     collectDao.deleteAll()
                     collectDao.insert(
@@ -59,8 +60,8 @@ abstract class PackRatDatabase : RoomDatabase() {
                             333L
                         )
                     )
-                    collectDao.getCollectList().value?.forEach {
-                        log("insert:${it.content}")
+                    collectDao.getCollectList().forEach {
+                        log(content = "insert:${it.content}")
                     }
                 }
             }

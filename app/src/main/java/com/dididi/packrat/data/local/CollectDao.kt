@@ -20,7 +20,7 @@ interface CollectDao {
 
     //获取collect list的liveData数据
     @Query("SELECT * from Collect ORDER BY id ASC")
-    fun getCollectList(): LiveData<List<Collect>>
+    fun getCollectList(): List<Collect>
 
     //插入数据 冲突则替换
     @Insert(onConflict = OnConflictStrategy.IGNORE)

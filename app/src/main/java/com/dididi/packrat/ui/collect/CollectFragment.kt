@@ -34,27 +34,26 @@ class CollectFragment : BaseFragment() {
         fragmentCollectContentRv.layoutManager = layoutManager
         mCollectAdapter = CollectListAdapter(activity!!)
         fragmentCollectContentRv.adapter = mCollectAdapter
-        //获取远程收藏数据
-//        viewModel.getRemoteCollects()
         observe()
-
+        //获取数据
+        viewModel.getCollects()
     }
 
     override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {
     }
 
     private fun observe() {
-        //观察收藏数据变化
-        viewModel.collectLiveData.observe(this, Observer {
-            mCollectAdapter.updateData(it)
-        })
         //观察loading值决定是否加载loading框
         viewModel.isLoading.observe(this, Observer {
             if (it) {
-                activity!!.showLoading()
+                showLoading()
             } else {
                 dismissAllLoading()
             }
+        })
+        //观察收藏数据变化
+        viewModel.collectLiveData.observe(this, Observer {
+            mCollectAdapter.updateData(it)
         })
     }
 }

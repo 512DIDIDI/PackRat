@@ -1,7 +1,5 @@
 package com.dididi.packrat.data
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.dididi.packrat.data.local.CollectDao
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.net.PackRatNetUtil
@@ -31,17 +29,14 @@ class CollectRepository private constructor(
             }
     }
 
-    fun getLocalCollects() = collectDao.getCollectList()
-
     /**
-     * 获取收藏列表LiveData
+     * 获取收藏列表数据
      */
-    suspend fun getRemoteCollects(): LiveData<List<Collect>> {
-        val list = net.fetchCollectList()
-        return MutableLiveData<List<Collect>>().apply {
-            value = list
-            setCollects(list)
-        }
+    suspend fun getCollects() = try {
+        net.fetchCollectList()
+    } catch (t: Throwable) {
+        t.printStackTrace()
+        collectDao.getCollectList()
     }
 
 
@@ -51,7 +46,7 @@ class CollectRepository private constructor(
     suspend fun setCollects(collects: List<Collect>) {
         collects.forEach {
             collectDao.insert(it)
-            log(it.content)
+            log(content = it.content)
         }
     }
 }

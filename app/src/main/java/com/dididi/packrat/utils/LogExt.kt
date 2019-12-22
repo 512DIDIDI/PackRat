@@ -3,6 +3,7 @@ package com.dididi.packrat.utils
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.dididi.packrat.BuildConfig
 
 
@@ -17,11 +18,13 @@ private const val TAG = "PackRat"
 private const val LOG_MAX_LENGTH = 2000
 private var debug = BuildConfig.DEBUG
 
-fun Context.toast(value: String) {
+fun Context.toast(value: String?) {
     Toast.makeText(this, value, Toast.LENGTH_SHORT).show()
 }
 
-fun log(content: String){
+fun Fragment.toast(value: String?) = this.activity!!.toast(value)
+
+fun log(tag:String = TAG,content: String) {
     if (debug) {
         //增加log日志的长度
         val strLength = content.length
@@ -29,11 +32,11 @@ fun log(content: String){
         var end = LOG_MAX_LENGTH
         for (i in 0..100) {
             if (strLength > end) {
-                Log.d(TAG, content.substring(start, end))
+                Log.d(tag, content.substring(start, end))
                 start = end
                 end += LOG_MAX_LENGTH
             } else {
-                Log.d(TAG, content.substring(start, strLength))
+                Log.d(tag, content.substring(start, strLength))
                 break
             }
         }

@@ -1,6 +1,7 @@
 package com.dididi.packrat.data.net
 
 import com.dididi.packrat.Config
+import com.dididi.packrat.data.net.interceptor.SaveCookieInterceptor
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -16,13 +17,18 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
  */
 
 object ServiceCreator {
-    private val httpClient = OkHttpClient.Builder()
+    private val httpClient = OkHttpClient
+        .Builder()
+        //保存cookie
+        .addInterceptor(SaveCookieInterceptor())
+        .build()
 
     private val builder = Retrofit.Builder()
         .baseUrl(Config.BASE_URL)
-        .client(httpClient.build())
+        .client(httpClient)
         .addConverterFactory(ScalarsConverterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
+        //配合kotlin协程使用
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
 
     private val retrofit = builder.build()
