@@ -1,7 +1,10 @@
 package com.dididi.packrat.ui.login
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
+import com.dididi.packrat.Config
+import com.dididi.packrat.PackRatApp
 import com.dididi.packrat.data.LoginRepository
 import com.dididi.packrat.data.model.login.LoginResponse
 import com.dididi.packrat.data.net.PackRatNetUtil
@@ -46,6 +49,11 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
     fun logOut() {
         launch {
             logOutLiveData.postValue(repository.logOut())
+            //登出时清空sp中存储的cookie
+            PackRatApp.context.getSharedPreferences(Config.COOKIE_FILE, Context.MODE_PRIVATE)
+                ?.edit()
+                ?.clear()
+                ?.apply()
         }
     }
 

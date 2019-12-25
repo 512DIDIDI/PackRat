@@ -1,6 +1,7 @@
 package com.dididi.packrat.data.net
 
 import com.dididi.packrat.Config
+import com.dididi.packrat.data.net.interceptor.AddCookieInterceptor
 import com.dididi.packrat.data.net.interceptor.SaveCookieInterceptor
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
@@ -19,6 +20,8 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 object ServiceCreator {
     private val httpClient = OkHttpClient
         .Builder()
+        //为请求添加cookie
+        .addInterceptor(AddCookieInterceptor())
         //保存cookie
         .addInterceptor(SaveCookieInterceptor())
         .build()

@@ -10,4 +10,8 @@ package com.dididi.packrat
 
 object Config{
     const val BASE_URL = "https://www.wanandroid.com"
+    const val COOKIE_FILE = "cookieData"
+    const val COOKIE_KEY = "cookie"
+    const val SET_COOKIE_KEY = "Set-Cookie"
+    const val COOKIE_NAME = "Cookie"
 }

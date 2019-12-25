@@ -2,6 +2,7 @@ package com.dididi.packrat.utils
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
+import android.animation.TimeInterpolator
 import android.content.Context
 import android.view.View
 import android.view.animation.OvershootInterpolator
