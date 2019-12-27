@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.dididi.packrat.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.android.synthetic.main.fragment_main.*
 
 
@@ -23,10 +24,24 @@ class MainFragment : BaseFragment() {
 
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
         setNavBottomBar()
+        setImmersionBar()
     }
 
     override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {
 
+    }
+
+    /**
+     * 设置状态栏导航栏状态
+     */
+    private fun setImmersionBar(){
+        immersionBar {
+            reset()
+            barColor(R.color.backgroundColorWhite)
+            statusBarDarkFont(true)
+            navigationBarDarkIcon(true)
+            fitsSystemWindows(true)
+        }
     }
 
     /**

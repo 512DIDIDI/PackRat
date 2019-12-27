@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/collect"
         android:icon="@mipmap/folder"
-        android:title="@string/collect"/>
+        tools:ignore="MenuTitle" />
 
     <item
         android:id="@+id/todoList"
         android:icon="@mipmap/list"
-        android:title="@string/list"/>
+        tools:ignore="MenuTitle" />
 
     <item
         android:id="@+id/me"
         android:icon="@mipmap/me"
-        android:title="@string/me"/>
+        tools:ignore="MenuTitle" />
 
 </menu>

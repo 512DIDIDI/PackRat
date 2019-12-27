@@ -3,11 +3,13 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/backgroundColorWhite</item>
+        <item name="colorPrimaryDark">@color/backgroundColorWhite</item>
+        <item name="android:textColorPrimary">@color/textColorGray</item>
+        <item name="android:navigationBarColor">@color/backgroundColorWhite</item>
+        <item name="colorAccent">@color/textColorGray</item>
         <!--改变toolbar菜单图标颜色-->
-        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColorSecondary">@color/textColorGray</item>
         <!--toolbar菜单popup弹出风格-->
         <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
     </style>

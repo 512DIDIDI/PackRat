@@ -10,6 +10,8 @@ import androidx.navigation.Navigation
 import com.dididi.packrat.R
 import com.dididi.packrat.ui.BaseFragment
 import com.dididi.packrat.utils.*
+import com.gyf.immersionbar.ImmersionBar
+import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
@@ -35,6 +37,27 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
 
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
         observe()
+        clickEvent()
+        setImmersionBar()
+    }
+
+    override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {
+    }
+
+    /**
+     * 设置状态栏导航栏状态
+     */
+    private fun setImmersionBar() {
+        immersionBar {
+            reset()
+            barColor(R.color.backgroundColorGray)
+            statusBarDarkFont(true)
+            navigationBarDarkIcon(true)
+            fitsSystemWindows(true)
+        }
+    }
+
+    private fun clickEvent() {
         //滚动监听
         val gestureDetector = GestureDetector(activity!!, EnterLoginGestureListener())
         fragmentLoginInitLayout.setOnTouchListener { v, event ->
@@ -50,9 +73,6 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
         fragmentLoginForgetPasswordLayoutNext.setOnClickListener(this)
         fragmentLoginResetPasswordLayoutBack.setOnClickListener(this)
         fragmentLoginResetPasswordLayoutLogin.setOnClickListener(this)
-    }
-
-    override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {
     }
 
     override fun onClick(v: View?) {
