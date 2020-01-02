@@ -2,12 +2,10 @@ package com.dididi.packrat.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.dididi.packrat.R
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.android.synthetic.main.fragment_main.*
 
@@ -23,6 +21,8 @@ class MainFragment : BaseFragment() {
     override fun setLayout() = R.layout.fragment_main
 
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
+        //navigation+DrawerLayout必须搭配supportActionBar使用
+        mActivity.setSupportActionBar(fragmentMainToolbar)
         setNavBottomBar()
         setImmersionBar()
     }
@@ -34,7 +34,7 @@ class MainFragment : BaseFragment() {
     /**
      * 设置状态栏导航栏状态
      */
-    private fun setImmersionBar(){
+    private fun setImmersionBar() {
         immersionBar {
             reset()
             barColor(R.color.backgroundColorWhite)
@@ -48,7 +48,11 @@ class MainFragment : BaseFragment() {
      * 绑定bottomBar与fragment之间的关系
      */
     private fun setNavBottomBar() {
-        val navController = Navigation.findNavController(activity!!, R.id.fragmentMainFragment)
-        NavigationUI.setupWithNavController(fragmentMainBottomBar, navController)
+        val navController = Navigation.findNavController(mActivity,R.id.fragmentMainFragment)
+        NavigationUI.setupWithNavController(fragmentMainNavView, navController)
+        val appBarConfiguration = AppBarConfiguration.Builder(navController.graph).build()
+        NavigationUI.setupActionBarWithNavController(mActivity, navController, appBarConfiguration)
     }
+
+
 }

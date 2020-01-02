@@ -1,9 +1,12 @@
 package com.dididi.packrat.ui
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
 
@@ -15,6 +18,18 @@ import androidx.fragment.app.Fragment
  */
 
 abstract class BaseFragment : Fragment() {
+
+    /**
+     * 提供AppCompatActivity实例
+     */
+    protected lateinit var mActivity:AppCompatActivity
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is AppCompatActivity){
+            mActivity = context
+        }
+    }
 
     /**
      * 设置布局，可传入id或view
