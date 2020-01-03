@@ -26,7 +26,7 @@ class CollectViewModel(application: Application) : BaseViewModel(application) {
             viewModelScope
         ).collectDao(), PackRatNetUtil.getInstance()
     )
-    //获取本地存储的收藏数据
+    //收藏数据
     var collectLiveData = MutableLiveData<List<Collect>>()
 
     /**

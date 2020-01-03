@@ -10,6 +10,7 @@ import androidx.navigation.ui.NavigationUI
 import com.dididi.packrat.Config
 import com.dididi.packrat.R
 import kotlinx.android.synthetic.main.activity_root.*
+import kotlinx.android.synthetic.main.fragment_main.*
 
 /**
  * 根Activity 作为fragment的容器
@@ -30,5 +31,4 @@ class RootActivity : AppCompatActivity() {
                 .navigate(R.id.action_loginFragment_to_mainFragment)
         }
     }
-
 }

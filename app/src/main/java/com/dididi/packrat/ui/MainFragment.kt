@@ -2,10 +2,14 @@ package com.dididi.packrat.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.dididi.packrat.R
+import com.dididi.packrat.utils.toast
+import com.google.android.material.navigation.NavigationView
 import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.android.synthetic.main.fragment_main.*
 
@@ -27,9 +31,7 @@ class MainFragment : BaseFragment() {
         setImmersionBar()
     }
 
-    override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {
-
-    }
+    override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {}
 
     /**
      * 设置状态栏导航栏状态
@@ -45,14 +47,10 @@ class MainFragment : BaseFragment() {
     }
 
     /**
-     * 绑定bottomBar与fragment之间的关系
+     * 绑定左侧NavigationView与fragment之间的关系
      */
     private fun setNavBottomBar() {
-        val navController = Navigation.findNavController(mActivity,R.id.fragmentMainFragment)
+        val navController = Navigation.findNavController(activity!!, R.id.fragmentMainFragment)
         NavigationUI.setupWithNavController(fragmentMainNavView, navController)
-        val appBarConfiguration = AppBarConfiguration.Builder(navController.graph).build()
-        NavigationUI.setupActionBarWithNavController(mActivity, navController, appBarConfiguration)
     }
-
-
 }

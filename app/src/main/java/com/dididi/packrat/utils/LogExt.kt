@@ -22,7 +22,7 @@ fun Context.toast(value: String?) {
     Toast.makeText(this, value, Toast.LENGTH_SHORT).show()
 }
 
-fun Fragment.toast(value: String?) = this.activity!!.toast(value)
+fun Fragment.toast(value: CharSequence?) = this.activity!!.toast(value.toString())
 
 fun log(tag:String = TAG,content: String) {
     if (debug) {
