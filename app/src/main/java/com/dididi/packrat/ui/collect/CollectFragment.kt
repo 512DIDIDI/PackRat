@@ -3,7 +3,8 @@ package com.dididi.packrat.ui.collect
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dididi.packrat.R
 import com.dididi.packrat.ui.BaseFragment
@@ -24,7 +25,7 @@ class CollectFragment : BaseFragment() {
     private lateinit var mCollectAdapter: CollectListAdapter
 
     private val viewModel by lazy {
-        ViewModelProviders.of(activity!!).get(CollectViewModel::class.java)
+        ViewModelProvider(activity!!).get(CollectViewModel::class.java)
     }
 
     override fun setLayout() = R.layout.fragment_collect
@@ -39,7 +40,10 @@ class CollectFragment : BaseFragment() {
         viewModel.getCollects()
     }
 
-    override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {
+    private fun clickEvent(){
+        fragmentCollectFab.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_collect_to_addCollect)
+        }
     }
 
     private fun observe() {

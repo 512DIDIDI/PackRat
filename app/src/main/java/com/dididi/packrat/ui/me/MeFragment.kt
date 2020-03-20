@@ -19,6 +19,4 @@ class MeFragment : BaseFragment(){
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
     }
 
-    override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {
-    }
 }

@@ -40,11 +40,6 @@ abstract class BaseFragment : Fragment() {
      */
     abstract fun bindView(savedInstanceState: Bundle?, rootView: View)
 
-    /**
-     * 绑定子控件
-     */
-    abstract fun bindChildView(savedInstanceState: Bundle?, rootView: View)
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -55,7 +50,6 @@ abstract class BaseFragment : Fragment() {
             is View -> setLayout() as View
             else -> throw TypeCastException("setLayout()方法返回类型错误，需传入resId或view类型")
         }
-        bindChildView(savedInstanceState, rootView)
         return rootView
     }
 

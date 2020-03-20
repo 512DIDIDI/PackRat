@@ -65,6 +65,8 @@ dependencies {
     implementation "com.airbnb.android:lottie:$lottieVersion"
     //circleview
     implementation "de.hdodenhof:circleimageview:$circleviewVersion"
+    //刷新layout
+    implementation "com.scwang.smartrefresh:SmartRefreshLayout:$smartRefreshVersion"
     //retrofit组件
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"

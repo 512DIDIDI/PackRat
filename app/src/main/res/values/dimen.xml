@@ -13,10 +13,12 @@
     <dimen name="entryIconSize">40dp</dimen>
     <!--搜索框高度-->
     <dimen name="searchBarSize">40dp</dimen>
-    <!--普通标题文字大小-->
-    <dimen name="normalTitleSize">16sp</dimen>
+    <!--小标题文字大小-->
+    <dimen name="smallTitleSize">16sp</dimen>
     <!--toolbar文字大小-->
     <dimen name="toolBarTextSize">20sp</dimen>
+    <!--普通标题文字大小-->
+    <dimen name="normalTitleSize">20sp</dimen>
     <!--大标题文字大小-->
     <dimen name="bigTitleSize">24sp</dimen>
     <!--底部导航栏高度-->

@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.PopupMenu
+import androidx.annotation.MenuRes
 import androidx.fragment.app.Fragment
 import com.dididi.packrat.R
 
@@ -45,13 +46,14 @@ fun dismissAllLoading() = dialogs.forEach {
 /**
  * 收藏页面popupMenu显示
  */
-fun Context.showPopupMenu(parentView: View) =
+fun Context.showPopupMenu(parentView: View, @MenuRes menuRes: Int) =
     PopupMenu(this, parentView).apply {
-        menuInflater.inflate(R.menu.menu_collect_more, menu)
+        menuInflater.inflate(menuRes, menu)
         show()
     }
 
-fun Fragment.showPopupMenu(parentView: View) = this.activity!!.showPopupMenu(parentView)
+fun Fragment.showPopupMenu(parentView: View, @MenuRes menuRes: Int) =
+    this.activity!!.showPopupMenu(parentView, menuRes)
 
 /**
  * 关闭所有popupmenu

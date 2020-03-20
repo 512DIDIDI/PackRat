@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/textColorDark"
-            android:textSize="@dimen/normalTitleSize"
+            android:textSize="@dimen/smallTitleSize"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@sample/data.json/data/title" />
