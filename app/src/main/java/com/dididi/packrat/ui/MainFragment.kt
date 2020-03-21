@@ -1,8 +1,10 @@
 package com.dididi.packrat.ui
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -29,6 +31,7 @@ class MainFragment : BaseFragment() {
         mActivity.setSupportActionBar(fragmentMainToolbar)
         setNavBottomBar()
         setImmersionBar()
+        clickEvent()
     }
 
     override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {}
@@ -52,5 +55,14 @@ class MainFragment : BaseFragment() {
     private fun setNavBottomBar() {
         val navController = Navigation.findNavController(activity!!, R.id.fragmentMainFragment)
         NavigationUI.setupWithNavController(fragmentMainNavView, navController)
+    }
+
+    private fun clickEvent() {
+        //左侧打开导航栏
+        fragmentMainToolbarDrawer.setOnClickListener {
+            if (!fragmentMainDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                fragmentMainDrawerLayout.openDrawer(GravityCompat.START)
+            }
+        }
     }
 }
