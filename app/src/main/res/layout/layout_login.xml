@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--登录页面-->
+<RelativeLayout android:id="@+id/fragmentLoginSignInLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:visibility="visible"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--用户登录文字-->
+    <TextView
+        android:id="@+id/fragmentLoginSignInLayoutLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/screenLRGap"
+        android:alpha="0"
+        android:text="@string/user_sign_in"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/smallTitleSize" />
+    <!--帐号输入框-->
+    <EditText
+        android:id="@+id/fragmentLoginSignInLayoutAccount"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fragmentLoginSignInLayoutLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/screenLRGap"
+        android:layout_marginRight="@dimen/screenLRGap"
+        android:layout_marginBottom="@dimen/dividerGap"
+        android:alpha="0"
+        android:gravity="center"
+        android:hint="@string/hint_email"
+        android:textAlignment="center"
+        android:textSize="@dimen/textSmallSize" />
+    <!--密码输入框-->
+    <EditText
+        android:id="@+id/fragmentLoginSignInLayoutPassword"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fragmentLoginSignInLayoutAccount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/screenLRGap"
+        android:layout_marginRight="@dimen/screenLRGap"
+        android:layout_marginBottom="@dimen/elementGap"
+        android:alpha="0"
+        android:gravity="center"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textSize="@dimen/textSmallSize" />
+    <!--登录按钮-->
+    <Button
+        android:id="@+id/fragmentLoginSignInLayoutSignIn"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/fragmentLoginSignInLayoutPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/elementGap"
+        android:alpha="0"
+        android:background="@drawable/sign_button_corner"
+        android:gravity="center"
+        android:text="@string/sign_in"
+        android:textColor="@color/textColorWhite"
+        android:textSize="@dimen/buttonTextSize" />
+    <!--注册按钮-->
+    <TextView
+        android:id="@+id/fragmentLoginSignInLayoutSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fragmentLoginSignInLayoutSignIn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/elementGap"
+        android:alpha="0"
+        android:text="@string/sign_up"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/buttonTextSize" />
+    <!--忘记密码按钮-->
+    <TextView
+        android:id="@+id/fragmentLoginSignInLayoutForgetPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fragmentLoginSignInLayoutSignUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/elementGap"
+        android:alpha="0"
+        android:text="@string/forget_password"
+        android:textColor="@color/textColorHint"
+        android:textSize="@dimen/textSmallSize" />
+
+</RelativeLayout>

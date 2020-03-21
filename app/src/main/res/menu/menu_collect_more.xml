@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/top"
+        android:id="@+id/menuCollectMoreTop"
         android:title="@string/top"/>
 
     <item
-        android:id="@+id/addList"
+        android:id="@+id/menuCollectMoreAddList"
         android:title="@string/addList"/>
 
     <item
-        android:id="@+id/share"
+        android:id="@+id/menuCollectMoreShare"
         android:title="@string/share"/>
 
     <item
-        android:id="@+id/delete"
+        android:id="@+id/menuCollectMoreDelete"
         android:title="@string/delete"/>
 
 </menu>

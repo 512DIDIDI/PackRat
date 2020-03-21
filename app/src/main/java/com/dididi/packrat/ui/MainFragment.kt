@@ -1,7 +1,6 @@
 package com.dididi.packrat.ui
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -10,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.dididi.packrat.R
+import com.dididi.packrat.utils.showPopupMenu
 import com.dididi.packrat.utils.toast
 import com.google.android.material.navigation.NavigationView
 import com.gyf.immersionbar.ktx.immersionBar
@@ -34,8 +34,6 @@ class MainFragment : BaseFragment() {
         clickEvent()
     }
 
-    override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {}
-
     /**
      * 设置状态栏导航栏状态
      */
@@ -57,12 +55,15 @@ class MainFragment : BaseFragment() {
         NavigationUI.setupWithNavController(fragmentMainNavView, navController)
     }
 
-    private fun clickEvent() {
-        //左侧打开导航栏
+    private fun clickEvent(){
         fragmentMainToolbarDrawer.setOnClickListener {
-            if (!fragmentMainDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-                fragmentMainDrawerLayout.openDrawer(GravityCompat.START)
-            }
+            fragmentMainDrawerLayout.openDrawer(GravityCompat.START)
+        }
+        fragmentMainToolbarSearch.setOnClickListener {
+
+        }
+        fragmentMainToolbarMore.setOnClickListener {
+            showPopupMenu(it,R.menu.menu_toolbar_more)
         }
     }
 }

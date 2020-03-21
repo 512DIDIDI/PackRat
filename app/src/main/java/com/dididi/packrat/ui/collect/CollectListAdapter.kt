@@ -67,7 +67,7 @@ class CollectListAdapter(val context: Context) :
                 Toast.makeText(context, "点击标题", Toast.LENGTH_SHORT).show()
             }
             more.setOnClickListener {
-                context.showPopupMenu(it)
+                context.showPopupMenu(it,R.menu.menu_collect_more)
                     .setOnMenuItemClickListener(this@CollectListAdapter)
             }
             layout.setOnClickListener {
@@ -77,19 +77,19 @@ class CollectListAdapter(val context: Context) :
     }
 
     override fun onMenuItemClick(item: MenuItem?) = when (item?.itemId) {
-        R.id.top -> {
+        R.id.menuCollectMoreTop -> {
             Toast.makeText(context, "点击置顶", Toast.LENGTH_SHORT).show()
             true
         }
-        R.id.addList -> {
+        R.id.menuCollectMoreAddList -> {
             Toast.makeText(context, "点击添加到清单", Toast.LENGTH_SHORT).show()
             true
         }
-        R.id.share -> {
+        R.id.menuCollectMoreShare -> {
             Toast.makeText(context, "点击分享", Toast.LENGTH_SHORT).show()
             true
         }
-        R.id.delete -> {
+        R.id.menuCollectMoreDelete -> {
             Toast.makeText(context, "点击删除", Toast.LENGTH_SHORT).show()
             true
         }

@@ -13,6 +13,10 @@ import com.dididi.packrat.utils.*
 import com.gyf.immersionbar.ImmersionBar
 import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.layout_forget_password.*
+import kotlinx.android.synthetic.main.layout_login.*
+import kotlinx.android.synthetic.main.layout_reset_password.*
+import kotlinx.android.synthetic.main.layout_signup.*
 
 
 /**
@@ -39,9 +43,6 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
         observe()
         clickEvent()
         setImmersionBar()
-    }
-
-    override fun bindChildView(savedInstanceState: Bundle?, rootView: View) {
     }
 
     /**

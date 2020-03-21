@@ -25,46 +25,46 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
+                    <Button
                         android:id="@+id/fragmentMainToolbarDrawer"
                         android:layout_width="@dimen/normalIconSize"
                         android:layout_height="@dimen/normalIconSize"
-                        android:contentDescription="@string/nav_app_bar_open_drawer_description"
-                        android:src="@mipmap/drawer"
+                        android:background="@mipmap/drawer"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/toolbar_drawer" />
 
                     <TextView
                         android:id="@+id/fragmentMainToolbarTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/dividerGap"
                         android:text="@string/app_name"
                         android:textColor="@color/textColorGray"
                         android:textSize="@dimen/toolBarTextSize"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="@dimen/elementGap"
                         app:layout_constraintLeft_toRightOf="@id/fragmentMainToolbarDrawer"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
+                    <Button
                         android:id="@+id/fragmentMainToolbarMore"
                         android:layout_width="@dimen/normalIconSize"
                         android:layout_height="@dimen/normalIconSize"
                         android:layout_marginEnd="@dimen/dividerGap"
-                        android:contentDescription="@string/more"
-                        android:src="@mipmap/more"
+                        android:contentDescription="@string/toolbar_more"
+                        android:background="@mipmap/more"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
+                    <Button
                         android:id="@+id/fragmentMainToolbarSearch"
                         android:layout_width="@dimen/normalIconSize"
                         android:layout_height="@dimen/normalIconSize"
                         android:layout_marginEnd="@dimen/elementGap"
-                        android:contentDescription="@string/search"
-                        android:src="@mipmap/search"
+                        android:contentDescription="@string/toolbar_search"
+                        android:background="@mipmap/search"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toLeftOf="@id/fragmentMainToolbarMore"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -78,13 +78,14 @@
             android:id="@+id/fragmentMainFragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:defaultNavHost="true"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:navGraph="@navigation/navigation_main" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+    <!--NavigationView必须在CoordinatorLayout之下-->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/fragmentMainNavView"
         android:layout_width="wrap_content"

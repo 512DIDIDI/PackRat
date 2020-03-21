@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">PackRat</string>
-    <string name="search">Search</string>
+    <string name="toolbar_search">Search</string>
     <string name="setting">Setting</string>
     <string name="collect">收藏</string>
     <string name="me">我</string>
@@ -31,5 +31,12 @@
     <string name="send">发送</string>
     <string name="back">返回</string>
     <string name="made_by_dididi_studio">MADE BY DIDIDI STUDIO</string>
-    <string name="more">more</string>
+    <string name="toolbar_more">more</string>
+    <string name="toolbar_drawer">drawer</string>
+    <string name="addCollectBack">退出添加收藏界面</string>
+    <string name="addCollectSave">保存收藏</string>
+    <string name="title">标题</string>
+    <string name="addCollectBottomTools">底部工具栏</string>
+    <string name="addCollectBottomMore">底部更多操作栏</string>
+    <string name="content">内容</string>
 </resources>

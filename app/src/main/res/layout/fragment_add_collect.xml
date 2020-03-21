@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColorWhite">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/fragmentAddCollectToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@color/backgroundColorWhite"
+        android:elevation="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/fragmentAddCollectBackBtn"
+                android:layout_width="@dimen/normalIconSize"
+                android:layout_height="@dimen/normalIconSize"
+                android:background="@mipmap/back"
+                android:contentDescription="@string/addCollectBack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/fragmentAddCollectSaveBtn"
+                android:layout_width="@dimen/normalIconSize"
+                android:layout_height="@dimen/normalIconSize"
+                android:layout_marginEnd="@dimen/elementGap"
+                android:background="@mipmap/save"
+                android:contentDescription="@string/addCollectSave"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/fragmentAddCollectTitleEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/screenLRGap"
+        android:layout_marginTop="@dimen/dividerGap"
+        android:layout_marginEnd="@dimen/screenLRGap"
+        android:autofillHints="@string/title"
+        android:background="@null"
+        android:hint="@string/title"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/normalTitleSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragmentAddCollectToolbar" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="top"
+        android:layout_marginStart="@dimen/screenLRGap"
+        android:layout_marginEnd="@dimen/screenLRGap"
+        android:autofillHints="@string/content"
+        android:layout_marginTop="@dimen/dividerGap"
+        android:background="@null"
+        android:hint="@string/content"
+        android:inputType="textMultiLine"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/smallTitleSize"
+        app:layout_constraintBottom_toTopOf="@id/fragmentAddCollectBottomBarCl"
+        app:layout_constraintTop_toBottomOf="@id/fragmentAddCollectTitleEt" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragmentAddCollectBottomBarCl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottomBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/fragmentAddCollectBottomBarToolsBtn"
+            android:layout_width="@dimen/normalIconSize"
+            android:layout_height="@dimen/normalIconSize"
+            android:layout_marginStart="@dimen/screenLRGap"
+            android:background="@mipmap/add_rect"
+            android:contentDescription="@string/addCollectBottomTools"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fragmentAddCollectBottomBarTimeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/fragmentAddCollectBottomBarMoreBtn"
+            app:layout_constraintStart_toEndOf="@id/fragmentAddCollectBottomBarToolsBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/date/ddmmyy" />
+
+        <Button
+            android:id="@+id/fragmentAddCollectBottomBarMoreBtn"
+            android:layout_width="@dimen/normalIconSize"
+            android:layout_height="@dimen/normalIconSize"
+            android:layout_marginEnd="@dimen/screenLRGap"
+            android:background="@mipmap/more"
+            android:contentDescription="@string/addCollectBottomMore"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

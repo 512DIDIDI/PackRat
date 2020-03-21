@@ -6,7 +6,7 @@
         android:id="@+id/menuToolbarSearch"
         android:icon="@mipmap/search"
         android:orderInCategory="1"
-        android:title="@string/search"
+        android:title="@string/toolbar_search"
         app:showAsAction="ifRoom" />
 
     <item
