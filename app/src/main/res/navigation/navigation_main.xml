@@ -3,34 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_main"
-    app:startDestination="@id/collect">
+    app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/collect"
-        android:name="com.dididi.packrat.ui.collect.CollectFragment"
-        android:label="CollectFragment"
-        tools:layout="@layout/fragment_collect" >
+        android:id="@+id/loginFragment"
+        android:name="com.dididi.packrat.ui.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_collect_to_addCollect"
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/homeFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.dididi.packrat.ui.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_addCollect"
             app:destination="@id/addCollectFragment"/>
     </fragment>
 
     <fragment
-        android:id="@+id/todoList"
-        android:name="com.dididi.packrat.ui.todo.TodoFragment"
-        android:label="TodoListFragment"
-        tools:layout="@layout/fragment_todolist"/>
-
-    <fragment
-        android:id="@+id/me"
-        android:name="com.dididi.packrat.ui.me.MeFragment"
-        android:label="MeFragment"
-        tools:layout="@layout/fragment_me" />
-
-    <fragment
         android:id="@+id/addCollectFragment"
         android:name="com.dididi.packrat.ui.collect.AddCollectFragment"
-        android:label="AddCollectFragment" >
-
-    </fragment>
+        android:label="AddCollectFragment"
+        tools:layout="@layout/fragment_add_collect"/>
 </navigation>

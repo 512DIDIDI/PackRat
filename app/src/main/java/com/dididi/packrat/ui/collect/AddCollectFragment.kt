@@ -2,9 +2,8 @@ package com.dididi.packrat.ui.collect
 
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.Navigation
 import com.dididi.packrat.R
-import com.dididi.packrat.ui.BaseFragment
+import com.dididi.packrat.ui.BaseMainNavFragment
 import kotlinx.android.synthetic.main.fragment_add_collect.*
 
 
@@ -14,7 +13,8 @@ import kotlinx.android.synthetic.main.fragment_add_collect.*
  * @describe 添加收藏页
  */
 
-class AddCollectFragment :BaseFragment() {
+class AddCollectFragment :BaseMainNavFragment() {
+
     override fun setLayout() = R.layout.fragment_add_collect
 
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
@@ -23,7 +23,7 @@ class AddCollectFragment :BaseFragment() {
 
     private fun clickEvent(){
         fragmentAddCollectBackBtn.setOnClickListener {
-            Navigation.findNavController(it).navigateUp()
+            mainNavController.navigateUp()
         }
     }
 }

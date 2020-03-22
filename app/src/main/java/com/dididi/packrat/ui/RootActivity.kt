@@ -3,20 +3,17 @@ package com.dididi.packrat.ui
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import com.dididi.packrat.Config
 import com.dididi.packrat.R
-import kotlinx.android.synthetic.main.activity_root.*
-import kotlinx.android.synthetic.main.fragment_main.*
 
 /**
  * 根Activity 作为fragment的容器
  */
 
 class RootActivity : AppCompatActivity() {
+
+    lateinit var currentFragment:BaseFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +25,17 @@ class RootActivity : AppCompatActivity() {
             ).getStringSet(Config.COOKIE_KEY, null).isNullOrEmpty()
         ) {
             Navigation.findNavController(this, R.id.activityRootFragment)
-                .navigate(R.id.action_loginFragment_to_mainFragment)
+                .navigate(R.id.action_login_to_home)
+        }
+    }
+
+    /**
+     * 实体返回键的处理
+     */
+    override fun onBackPressed() {
+        when{
+            currentFragment.onBackPressed() -> {}
+            else -> super.onBackPressed()
         }
     }
 }

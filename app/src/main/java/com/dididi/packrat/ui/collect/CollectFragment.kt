@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dididi.packrat.R
-import com.dididi.packrat.ui.BaseFragment
+import com.dididi.packrat.ui.BaseHomeNavFragment
 import com.dididi.packrat.utils.dismissAllLoading
 import com.dididi.packrat.utils.showLoading
 import kotlinx.android.synthetic.main.fragment_collect.*
@@ -20,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_collect.*
  * @describe
  */
 
-class CollectFragment : BaseFragment() {
+class CollectFragment : BaseHomeNavFragment() {
 
     private lateinit var mCollectAdapter: CollectListAdapter
 
@@ -38,11 +37,14 @@ class CollectFragment : BaseFragment() {
         observe()
         //获取数据
         viewModel.getCollects()
+        clickEvent()
     }
+
+    override fun onBackPressed() = false
 
     private fun clickEvent(){
         fragmentCollectFab.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_collect_to_addCollect)
+            mainNavController.navigate(R.id.action_home_to_addCollect)
         }
     }
 

@@ -3,7 +3,7 @@ package com.dididi.packrat.ui.todo
 import android.os.Bundle
 import android.view.View
 import com.dididi.packrat.R
-import com.dididi.packrat.ui.BaseFragment
+import com.dididi.packrat.ui.BaseHomeNavFragment
 
 
 /**
@@ -13,7 +13,7 @@ import com.dididi.packrat.ui.BaseFragment
  * @describe
  */
 
-class TodoFragment : BaseFragment(){
+class TodoFragment : BaseHomeNavFragment(){
 
     override fun setLayout() = R.layout.fragment_todolist
 

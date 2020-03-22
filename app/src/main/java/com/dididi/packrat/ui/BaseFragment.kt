@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
 
@@ -21,11 +20,11 @@ abstract class BaseFragment : Fragment() {
     /**
      * 提供AppCompatActivity实例
      */
-    protected lateinit var mActivity:AppCompatActivity
+    protected lateinit var mActivity: RootActivity
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is AppCompatActivity){
+        if (context is RootActivity) {
             mActivity = context
         }
     }
@@ -39,6 +38,11 @@ abstract class BaseFragment : Fragment() {
      * 绑定控件
      */
     abstract fun bindView(savedInstanceState: Bundle?, rootView: View)
+
+    /**
+     * 是否拦截返回键 默认不拦截
+     */
+    open fun onBackPressed() = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,4 +62,10 @@ abstract class BaseFragment : Fragment() {
         //需在onViewCreated中定义，否则kotlinx在fragment中无法使用
         bindView(savedInstanceState, view)
     }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        mActivity.currentFragment = this
+    }
+
 }

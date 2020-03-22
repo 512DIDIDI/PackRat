@@ -31,7 +31,7 @@
         android:gravity="center"
         android:hint="@string/hint_email"
         android:textAlignment="center"
-        android:textSize="@dimen/textSmallSize" />
+        android:textSize="@dimen/textNormalSize" />
     <!--密码输入框-->
     <EditText
         android:id="@+id/fragmentLoginSignInLayoutPassword"
@@ -47,7 +47,7 @@
         android:hint="@string/hint_password"
         android:inputType="textPassword"
         android:textAlignment="center"
-        android:textSize="@dimen/textSmallSize" />
+        android:textSize="@dimen/textNormalSize" />
     <!--登录按钮-->
     <Button
         android:id="@+id/fragmentLoginSignInLayoutSignIn"

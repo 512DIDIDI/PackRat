@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_home"
+    app:startDestination="@id/collect">
+
+    <fragment
+        android:id="@+id/collect"
+        android:name="com.dididi.packrat.ui.collect.CollectFragment"
+        android:label="CollectFragment"
+        tools:layout="@layout/fragment_collect" />
+
+    <fragment
+        android:id="@+id/todoList"
+        android:name="com.dididi.packrat.ui.todo.TodoFragment"
+        android:label="TodoListFragment"
+        tools:layout="@layout/fragment_todolist"/>
+
+    <fragment
+        android:id="@+id/me"
+        android:name="com.dididi.packrat.ui.me.MeFragment"
+        android:label="MeFragment"
+        tools:layout="@layout/fragment_me" />
+
+
+</navigation>

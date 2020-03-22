@@ -5,12 +5,11 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.dididi.packrat.R
-import com.dididi.packrat.ui.BaseFragment
+import com.dididi.packrat.ui.BaseMainNavFragment
 import com.dididi.packrat.utils.*
-import com.gyf.immersionbar.ImmersionBar
 import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.layout_forget_password.*
@@ -25,7 +24,7 @@ import kotlinx.android.synthetic.main.layout_signup.*
  * @describe 登录页
  */
 
-class LoginFragment : BaseFragment(), View.OnClickListener {
+class LoginFragment : BaseMainNavFragment(), View.OnClickListener {
 
     companion object {
         const val minDistance = 100
@@ -34,7 +33,7 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
     }
 
     private val viewModel by lazy {
-        ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        ViewModelProvider(this).get(LoginViewModel::class.java)
     }
 
     override fun setLayout() = R.layout.fragment_login
@@ -44,6 +43,8 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
         clickEvent()
         setImmersionBar()
     }
+
+    override fun onBackPressed() = false
 
     /**
      * 设置状态栏导航栏状态
@@ -61,7 +62,7 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
     private fun clickEvent() {
         //滚动监听
         val gestureDetector = GestureDetector(activity!!, EnterLoginGestureListener())
-        fragmentLoginInitLayout.setOnTouchListener { v, event ->
+        fragmentLoginInitLayout.setOnTouchListener { _, event ->
             gestureDetector.onTouchEvent(event)
         }
         fragmentLoginSignInLayoutSignUp.setOnClickListener(this)
@@ -131,7 +132,8 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
                 toast(it.errorMsg)
             } else {
                 Navigation.findNavController(fragmentLoginSignInLayoutSignIn)
-                    .navigate(R.id.action_loginFragment_to_mainFragment)
+                    .navigate(R.id.action_login_to_home)
+
             }
         })
         //注册监听
