@@ -131,9 +131,7 @@ class LoginFragment : BaseMainNavFragment(), View.OnClickListener {
             if (it.errorCode != 0) {
                 toast(it.errorMsg)
             } else {
-                Navigation.findNavController(fragmentLoginSignInLayoutSignIn)
-                    .navigate(R.id.action_login_to_home)
-
+                mainNavController.navigate(R.id.action_login_to_home)
             }
         })
         //注册监听
