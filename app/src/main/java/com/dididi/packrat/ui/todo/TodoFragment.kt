@@ -13,11 +13,14 @@ import com.dididi.packrat.ui.BaseHomeNavFragment
  * @describe
  */
 
-class TodoFragment : BaseHomeNavFragment(){
+class TodoFragment : BaseHomeNavFragment() {
 
     override fun setLayout() = R.layout.fragment_todolist
 
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
     }
 
+    override fun doBusiness() {
+
+    }
 }

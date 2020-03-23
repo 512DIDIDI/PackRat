@@ -6,7 +6,6 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import com.dididi.packrat.R
 import com.dididi.packrat.ui.BaseMainNavFragment
 import com.dididi.packrat.utils.*
@@ -39,6 +38,10 @@ class LoginFragment : BaseMainNavFragment(), View.OnClickListener {
     override fun setLayout() = R.layout.fragment_login
 
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
+
+    }
+
+    override fun doBusiness() {
         observe()
         clickEvent()
         setImmersionBar()

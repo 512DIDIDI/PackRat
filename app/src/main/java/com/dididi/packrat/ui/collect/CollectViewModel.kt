@@ -47,4 +47,10 @@ class CollectViewModel(application: Application) : BaseViewModel(application) {
             collectRepository.setCollects(collects)
         }
     }
+
+    fun setCollect(collect: Collect) {
+        launch {
+            collectRepository.setCollect(collect)
+        }
+    }
 }

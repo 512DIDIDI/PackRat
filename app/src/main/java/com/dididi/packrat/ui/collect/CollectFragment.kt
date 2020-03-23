@@ -34,15 +34,18 @@ class CollectFragment : BaseHomeNavFragment() {
         fragmentCollectContentRv.layoutManager = layoutManager
         mCollectAdapter = CollectListAdapter(activity!!)
         fragmentCollectContentRv.adapter = mCollectAdapter
+    }
+
+    override fun onBackPressed() = false
+
+    override fun doBusiness() {
         observe()
         //获取数据
         viewModel.getCollects()
         clickEvent()
     }
 
-    override fun onBackPressed() = false
-
-    private fun clickEvent(){
+    private fun clickEvent() {
         fragmentCollectFab.setOnClickListener {
             mainNavController.navigate(R.id.action_home_to_addCollect)
         }

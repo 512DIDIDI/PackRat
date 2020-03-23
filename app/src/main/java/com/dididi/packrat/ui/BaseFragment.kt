@@ -40,6 +40,11 @@ abstract class BaseFragment : Fragment() {
     abstract fun bindView(savedInstanceState: Bundle?, rootView: View)
 
     /**
+     * 业务逻辑
+     */
+    abstract fun doBusiness()
+
+    /**
      * 是否拦截返回键 默认不拦截
      */
     open fun onBackPressed() = false
@@ -48,19 +53,18 @@ abstract class BaseFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val rootView: View = when (setLayout()) {
-            is Int -> inflater.inflate(setLayout() as Int, container, false)
-            is View -> setLayout() as View
-            else -> throw TypeCastException("setLayout()方法返回类型错误，需传入resId或view类型")
-        }
-        return rootView
+    ): View = when (setLayout()) {
+        is Int -> inflater.inflate(setLayout() as Int, container, false)
+        is View -> setLayout() as View
+        else -> throw TypeCastException("setLayout()方法返回类型错误，需传入resId或view类型")
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //需在onViewCreated中定义，否则kotlinx在fragment中无法使用
         bindView(savedInstanceState, view)
+        doBusiness()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

@@ -49,4 +49,12 @@ class CollectRepository private constructor(
             log(content = it.content)
         }
     }
+
+    /**
+     * 插入单个收藏数据
+     */
+    suspend fun setCollect(collect: Collect) {
+        collectDao.insert(collect)
+        log(content = collect.content)
+    }
 }

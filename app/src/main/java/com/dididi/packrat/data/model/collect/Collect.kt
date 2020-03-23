@@ -13,26 +13,38 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Collect(
+    /**
+     * id 自增长
+     */
     @PrimaryKey(autoGenerate = true)
-    val id:Int,
+    val id: Int,
     /**
      * 隶属用户id
      */
-    val userId:String,
+    val userId: String,
     /**
      * 标题
      */
-    val title:String,
+    val title: String,
     /**
      * 收藏数据类型 [CollectContentType]
      */
-    val type:Int,
+    val type: Int,
     /**
      * 收藏数据内容 通常是url地址或者文本信息
      */
-    val content:String,
+    val content: String,
     /**
      * 收藏日期
      */
-    val time:Long
-)
+    val time: Long
+) {
+    constructor(userId: String, title: String, type: Int, content: String, time: Long) : this(
+        0,
+        userId,
+        title,
+        type,
+        content,
+        time
+    )
+}
