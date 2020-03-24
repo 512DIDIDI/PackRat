@@ -6,12 +6,12 @@
 - [ ] todo
 
 ## Dependecies
-* JetPack：
+* jetpack：
   1. LiveData
   2. Room
   3. ViewModel
   4. Navigation
-* Kotlin
+* kotlin
 * kotlinx-coroutines
 * constraintlayout
 * retrofit
