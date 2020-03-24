@@ -2,16 +2,16 @@
 
 ## Task
 - [x] sign
-- [ ] collect:
-     - [ ] local
-          - [x] text
-          - [ ] web
-          - [ ] image
-          - [ ] video
-          - [ ] audio
-          - [ ] file
-     - [ ] remote
-          - [ ] chrome
+- [ ] collect
+  - [ ] local
+    - [x] text
+    - [ ] web
+    - [ ] image
+    - [ ] video
+    - [ ] audio
+    - [ ] file
+  - [ ] remote
+    - [ ] chrome
 - [ ] todo
 
 ## Dependecies
