@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.layout_forget_password.*
 import kotlinx.android.synthetic.main.layout_login.*
 import kotlinx.android.synthetic.main.layout_reset_password.*
 import kotlinx.android.synthetic.main.layout_signup.*
+import kotlinx.coroutines.ObsoleteCoroutinesApi
 
 
 /**
@@ -23,7 +24,7 @@ import kotlinx.android.synthetic.main.layout_signup.*
  * @describe 登录页
  */
 
-class LoginFragment : BaseMainNavFragment(), View.OnClickListener {
+class LoginFragment : BaseMainNavFragment() {
 
     companion object {
         const val minDistance = 100
@@ -68,60 +69,44 @@ class LoginFragment : BaseMainNavFragment(), View.OnClickListener {
         fragmentLoginInitLayout.setOnTouchListener { _, event ->
             gestureDetector.onTouchEvent(event)
         }
-        fragmentLoginSignInLayoutSignUp.setOnClickListener(this)
-        fragmentLoginSignInLayoutSignIn.setOnClickListener(this)
-        fragmentLoginSignInLayoutForgetPassword.setOnClickListener(this)
-        fragmentLoginSignUpLayoutBack.setOnClickListener(this)
-        fragmentLoginSignUpLayoutSignUp.setOnClickListener(this)
-        fragmentLoginForgetPasswordLayoutBack.setOnClickListener(this)
-        fragmentLoginForgetPasswordLayoutSendVerify.setOnClickListener(this)
-        fragmentLoginForgetPasswordLayoutNext.setOnClickListener(this)
-        fragmentLoginResetPasswordLayoutBack.setOnClickListener(this)
-        fragmentLoginResetPasswordLayoutLogin.setOnClickListener(this)
-    }
+        fragmentLoginSignInLayoutSignUp.setOnClickListener {
+            getSignUpAnimation(fragmentLoginSignInLayout)
+        }
+        fragmentLoginSignInLayoutSignIn.onSingleClick {
+            //调用登录
+            viewModel.login(
+                fragmentLoginSignInLayoutAccount.text.toString(),
+                fragmentLoginSignInLayoutPassword.text.toString()
+            )
+        }
+        fragmentLoginSignInLayoutForgetPassword.setOnClickListener {
+            getForgetPasswordAnimation(fragmentLoginSignInLayout)
+        }
+        fragmentLoginSignUpLayoutBack.setOnClickListener {
+            getSignInAnimation(fragmentLoginSignUpLayout)
+        }
+        fragmentLoginSignUpLayoutSignUp.onSingleClick {
+            //调用注册
+            viewModel.register(
+                fragmentLoginSignUpLayoutAccount.text.toString(),
+                fragmentLoginSignUpLayoutPassword.text.toString(),
+                fragmentLoginSignUpLayoutReenterPassword.text.toString()
+            )
+        }
+        fragmentLoginForgetPasswordLayoutBack.setOnClickListener {
+            getSignInAnimation(fragmentLoginForgetPasswordLayout)
+        }
+        fragmentLoginForgetPasswordLayoutSendVerify.onSingleClick {
 
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.fragmentLoginSignInLayoutSignUp -> {
-                getSignUpAnimation(fragmentLoginSignInLayout)
-            }
-            R.id.fragmentLoginSignInLayoutSignIn -> {
-                //调用登录
-                viewModel.login(
-                    fragmentLoginSignInLayoutAccount.text.toString(),
-                    fragmentLoginSignInLayoutPassword.text.toString()
-                )
-            }
-            R.id.fragmentLoginSignInLayoutForgetPassword -> {
-                getForgetPasswordAnimation(fragmentLoginSignInLayout)
-            }
-            R.id.fragmentLoginSignUpLayoutBack -> {
-                getSignInAnimation(fragmentLoginSignUpLayout)
-            }
-            R.id.fragmentLoginSignUpLayoutSignUp -> {
-                //调用注册
-                viewModel.register(
-                    fragmentLoginSignUpLayoutAccount.text.toString(),
-                    fragmentLoginSignUpLayoutPassword.text.toString(),
-                    fragmentLoginSignUpLayoutReenterPassword.text.toString()
-                )
-            }
-            R.id.fragmentLoginForgetPasswordLayoutBack -> {
-                getSignInAnimation(fragmentLoginForgetPasswordLayout)
-            }
-            R.id.fragmentLoginForgetPasswordLayoutSendVerify -> {
-            }
-            R.id.fragmentLoginForgetPasswordLayoutNext -> {
-                getResetPasswordAnimation(fragmentLoginForgetPasswordLayout)
-            }
-            R.id.fragmentLoginResetPasswordLayoutBack -> {
-                getForgetPasswordAnimation(fragmentLoginResetPasswordLayout)
-            }
-            R.id.fragmentLoginResetPasswordLayoutLogin -> {
-                getSignInAnimation(fragmentLoginResetPasswordLayout)
-            }
-            else -> {
-            }
+        }
+        fragmentLoginForgetPasswordLayoutNext.setOnClickListener {
+            getResetPasswordAnimation(fragmentLoginForgetPasswordLayout)
+        }
+        fragmentLoginResetPasswordLayoutBack.setOnClickListener {
+            getForgetPasswordAnimation(fragmentLoginResetPasswordLayout)
+        }
+        fragmentLoginResetPasswordLayoutLogin.onSingleClick {
+            getSignInAnimation(fragmentLoginResetPasswordLayout)
         }
     }
 

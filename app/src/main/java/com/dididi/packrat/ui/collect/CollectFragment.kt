@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dididi.packrat.R
 import com.dididi.packrat.ui.BaseHomeNavFragment
 import com.dididi.packrat.utils.dismissAllLoading
+import com.dididi.packrat.utils.onSingleClick
 import com.dididi.packrat.utils.showLoading
 import kotlinx.android.synthetic.main.fragment_collect.*
 
@@ -46,7 +47,7 @@ class CollectFragment : BaseHomeNavFragment() {
     }
 
     private fun clickEvent() {
-        fragmentCollectFab.setOnClickListener {
+        fragmentCollectFab.onSingleClick(500L) {
             mainNavController.navigate(R.id.action_home_to_addCollect)
         }
     }

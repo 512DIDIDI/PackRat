@@ -67,7 +67,7 @@ class CollectListAdapter(val context: Context) :
                 Toast.makeText(context, "点击标题", Toast.LENGTH_SHORT).show()
             }
             more.setOnClickListener {
-                context.showPopupMenu(it,R.menu.menu_collect_more)
+                context.showPopupMenu(it, R.menu.menu_collect_more)
                     .setOnMenuItemClickListener(this@CollectListAdapter)
             }
             layout.setOnClickListener {

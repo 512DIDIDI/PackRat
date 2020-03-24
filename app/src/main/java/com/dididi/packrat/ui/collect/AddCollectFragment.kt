@@ -8,6 +8,7 @@ import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.model.collect.CollectContentType
 import com.dididi.packrat.ui.BaseMainNavFragment
 import com.dididi.packrat.utils.closeSoftInput
+import com.dididi.packrat.utils.onSingleClick
 import com.dididi.packrat.utils.showSoftInput
 import kotlinx.android.synthetic.main.fragment_add_collect.*
 
@@ -42,9 +43,10 @@ class AddCollectFragment : BaseMainNavFragment() {
 
     private fun clickEvent() {
         fragmentAddCollectBackBtn.setOnClickListener {
+            activity?.closeSoftInput()
             mainNavController.navigateUp()
         }
-        fragmentAddCollectSaveBtn.setOnClickListener {
+        fragmentAddCollectSaveBtn.onSingleClick {
             val collect = Collect(
                 "dididi",
                 fragmentAddCollectTitleEt.text.toString(),
@@ -53,7 +55,7 @@ class AddCollectFragment : BaseMainNavFragment() {
                 System.currentTimeMillis()
             )
             viewModel.setCollect(collect)
-            mainNavController.popBackStack()
+            mainNavController.navigateUp()
             activity?.closeSoftInput()
         }
     }
