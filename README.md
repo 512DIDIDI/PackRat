@@ -2,7 +2,16 @@
 
 ## Task
 - [x] sign
-- [ ] collect(本地√ 远程同步x)
+- [ ] collect:
+     - [ ] local
+          - [x] text
+          - [ ] web
+          - [ ] image
+          - [ ] video
+          - [ ] audio
+          - [ ] file
+     - [ ] remote
+          - [ ] chrome
 - [ ] todo
 
 ## Dependecies
