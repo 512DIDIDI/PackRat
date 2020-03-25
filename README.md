@@ -35,4 +35,6 @@
   * Kotlin实现请看源码[AnimationExt.kt](https://github.com/512DIDIDI/PackRat/blob/master/app/src/main/java/com/dididi/packrat/utils/AnimationExt.kt)
 - 单Activity架构:采用Navigation
 - MVVM框架:采用JetPack组件
+
+![MVVM框架](https://github.com/512DIDIDI/PackRat/blob/master/app/src/main/assets/mvvm%E6%9E%B6%E6%9E%84.png)
 - 详解请查看[JetPack+单Activity的一些思路](https://www.jianshu.com/p/1560de5422ca)
