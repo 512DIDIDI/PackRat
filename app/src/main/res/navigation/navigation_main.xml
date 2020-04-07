@@ -22,12 +22,12 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_home_to_addCollect"
-            app:destination="@id/addCollectFragment"/>
+            app:destination="@id/collectEditFragment"/>
     </fragment>
 
     <fragment
-        android:id="@+id/addCollectFragment"
-        android:name="com.dididi.packrat.ui.collect.AddCollectFragment"
-        android:label="AddCollectFragment"
-        tools:layout="@layout/fragment_add_collect"/>
+        android:id="@+id/collectEditFragment"
+        android:name="com.dididi.packrat.ui.collect.CollectEditFragment"
+        android:label="collectEditFragment"
+        tools:layout="@layout/fragment_collect_edit"/>
 </navigation>

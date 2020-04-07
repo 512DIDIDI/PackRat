@@ -7,7 +7,7 @@
     android:background="@color/backgroundColorWhite">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/fragmentAddCollectToolbar"
+        android:id="@+id/fragmentCollectEditToolbar"
         android:layout_width="match_parent"
         android:layout_height="?android:actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,7 +20,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/fragmentAddCollectBackBtn"
+                android:id="@+id/fragmentCollectEditBackBtn"
                 android:layout_width="@dimen/normalIconSize"
                 android:layout_height="@dimen/normalIconSize"
                 android:background="@mipmap/back"
@@ -30,7 +30,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/fragmentAddCollectSaveBtn"
+                android:id="@+id/fragmentCollectEditSaveBtn"
                 android:layout_width="@dimen/normalIconSize"
                 android:layout_height="@dimen/normalIconSize"
                 android:layout_marginEnd="@dimen/elementGap"
@@ -45,11 +45,11 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/fragmentAddCollectTitleEt"
+        android:id="@+id/fragmentCollectEditTitleEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragmentAddCollectToolbar"
+        app:layout_constraintTop_toBottomOf="@id/fragmentCollectEditToolbar"
         android:layout_marginStart="@dimen/screenLRGap"
         android:layout_marginTop="@dimen/dividerGap"
         android:layout_marginEnd="@dimen/screenLRGap"
@@ -61,11 +61,53 @@
         android:textColor="@color/textColorBlack"
         android:textSize="@dimen/normalTitleSize" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragmentCollectEditBottomBarCl"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="@dimen/bottomBarSize"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/fragmentCollectEditBottomBarToolsBtn"
+            android:layout_width="@dimen/normalIconSize"
+            android:layout_height="@dimen/normalIconSize"
+            android:layout_marginStart="@dimen/screenLRGap"
+            android:background="@mipmap/add_rect"
+            android:contentDescription="@string/addCollectBottomTools"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fragmentCollectEditBottomBarTimeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/fragmentCollectEditBottomBarMoreBtn"
+            app:layout_constraintStart_toEndOf="@id/fragmentCollectEditBottomBarToolsBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/date/ddmmyy" />
+
+        <Button
+            android:id="@+id/fragmentCollectEditBottomBarMoreBtn"
+            android:layout_width="@dimen/normalIconSize"
+            android:layout_height="@dimen/normalIconSize"
+            android:layout_marginEnd="@dimen/screenLRGap"
+            android:background="@mipmap/more"
+            android:contentDescription="@string/addCollectBottomMore"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <EditText
-        android:id="@+id/fragmentAddCollectContentEt"
+        android:id="@+id/fragmentCollectEditContentEt"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/fragmentAddCollectTitleEt"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCollectEditBottomBarCl"
+        app:layout_constraintTop_toBottomOf="@id/fragmentCollectEditTitleEt"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/screenLRGap"
         android:layout_marginTop="@dimen/dividerGap"
@@ -77,46 +119,5 @@
         android:inputType="textMultiLine"
         android:textColor="@color/textColorBlack"
         android:textSize="@dimen/smallTitleSize" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fragmentAddCollectBottomBarCl"
-        android:layout_width="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_height="@dimen/bottomBarSize"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <Button
-            android:id="@+id/fragmentAddCollectBottomBarToolsBtn"
-            android:layout_width="@dimen/normalIconSize"
-            android:layout_height="@dimen/normalIconSize"
-            android:layout_marginStart="@dimen/screenLRGap"
-            android:background="@mipmap/add_rect"
-            android:contentDescription="@string/addCollectBottomTools"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/fragmentAddCollectBottomBarTimeTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/fragmentAddCollectBottomBarMoreBtn"
-            app:layout_constraintStart_toEndOf="@id/fragmentAddCollectBottomBarToolsBtn"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@tools:sample/date/ddmmyy" />
-
-        <Button
-            android:id="@+id/fragmentAddCollectBottomBarMoreBtn"
-            android:layout_width="@dimen/normalIconSize"
-            android:layout_height="@dimen/normalIconSize"
-            android:layout_marginEnd="@dimen/screenLRGap"
-            android:background="@mipmap/more"
-            android:contentDescription="@string/addCollectBottomMore"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,16 +10,18 @@ import com.dididi.packrat.ui.BaseMainNavFragment
 import com.dididi.packrat.utils.closeSoftInput
 import com.dididi.packrat.utils.onSingleClick
 import com.dididi.packrat.utils.showSoftInput
-import kotlinx.android.synthetic.main.fragment_add_collect.*
+import kotlinx.android.synthetic.main.fragment_collect_edit.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 /**
  * @author dididi(yechao)
  * @since 20/03/2020
- * @describe 添加收藏页
+ * @describe 收藏编辑页
  */
 
-class AddCollectFragment : BaseMainNavFragment() {
+class CollectEditFragment : BaseMainNavFragment() {
 
     private val viewModel by lazy {
         ViewModelProvider(activity!!).get(CollectViewModel::class.java)
@@ -30,33 +32,38 @@ class AddCollectFragment : BaseMainNavFragment() {
      */
     private var collectContentType: CollectContentType = CollectContentType.TEXT
 
-    override fun setLayout() = R.layout.fragment_add_collect
+    override fun setLayout() = R.layout.fragment_collect_edit
 
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
     }
 
     override fun doBusiness() {
-        showSoftInput(fragmentAddCollectTitleEt)
+        showSoftInput(fragmentCollectEditTitleEt)
+        val dateFormat = SimpleDateFormat("MM-dd HH:mm", Locale.CHINA)
+        fragmentCollectEditBottomBarTimeTv.text = dateFormat.format(System.currentTimeMillis())
         clickEvent()
         observe()
     }
 
     private fun clickEvent() {
-        fragmentAddCollectBackBtn.setOnClickListener {
+        fragmentCollectEditBackBtn.setOnClickListener {
             activity?.closeSoftInput()
             mainNavController.navigateUp()
         }
-        fragmentAddCollectSaveBtn.onSingleClick {
+        fragmentCollectEditSaveBtn.onSingleClick {
             val collect = Collect(
                 "dididi",
-                fragmentAddCollectTitleEt.text.toString(),
+                fragmentCollectEditTitleEt.text.toString(),
                 collectContentType.value,
-                fragmentAddCollectContentEt.text.toString(),
+                fragmentCollectEditContentEt.text.toString(),
                 System.currentTimeMillis()
             )
             viewModel.setCollect(collect)
             mainNavController.navigateUp()
             activity?.closeSoftInput()
+        }
+        fragmentCollectEditBottomBarToolsBtn.setOnClickListener {
+
         }
     }
 
