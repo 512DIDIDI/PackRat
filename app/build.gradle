@@ -61,8 +61,8 @@ dependencies {
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
     kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
-    //lottie组件
-    implementation "com.airbnb.android:lottie:$lottieVersion"
+    //uiExt组件
+    implementation "com.github.512DIDIDI:UiExtLib:$uiExtVersion"
     //circleview
     implementation "de.hdodenhof:circleimageview:$circleviewVersion"
     //刷新layout
