@@ -2,6 +2,7 @@ package com.dididi.packrat.ui.collect
 
 import android.os.Bundle
 import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
@@ -9,6 +10,7 @@ import com.dididi.packrat.R
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.model.collect.CollectContentType
 import com.dididi.packrat.ui.BaseMainNavFragment
+import com.dididi.packrat.ui.widget.WithIconTextView
 import com.dididi.packrat.utils.*
 import kotlinx.android.synthetic.main.fragment_collect_edit.*
 import java.text.SimpleDateFormat
@@ -63,10 +65,57 @@ class CollectEditFragment : BaseMainNavFragment() {
             activity?.closeSoftInput()
         }
         fragmentCollectEditBottomBarToolsBtn.setOnClickListener {
-            it.isSelected = !it.isSelected
-            if (it.isSelected) {
-                initPopupWindow(R.layout.dialog_collect_edit_tools).showAtMiddleTop(it)
-            }
+            showToolsPopupWindow(it)
+        }
+    }
+
+    private fun showToolsPopupWindow(parentView: View) {
+        val popupWindow = initPopupWindow(R.layout.dialog_collect_edit_tools).apply {
+            showAtMiddleTop(parentView)
+        }
+        val view = popupWindow.contentView
+        val camera = view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsCamera)
+        val paint = view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsPaint)
+        val record = view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsRecord)
+        val web = view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsWeb)
+        val gallery = view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsGallery)
+        val chooseVideo =
+            view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsChooseVideo)
+        val chooseFile = view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsChooseFile)
+        camera.setOnClickListener {
+            collectContentType = CollectContentType.IMAGE
+            toast("camera")
+            popupWindow.dismiss()
+        }
+        paint.setOnClickListener {
+            collectContentType = CollectContentType.IMAGE
+            toast("paint")
+            popupWindow.dismiss()
+        }
+        record.setOnClickListener {
+            collectContentType = CollectContentType.AUDIO
+            toast("record")
+            popupWindow.dismiss()
+        }
+        web.setOnClickListener {
+            collectContentType = CollectContentType.WEB
+            toast("web")
+            popupWindow.dismiss()
+        }
+        gallery.setOnClickListener {
+            collectContentType = CollectContentType.IMAGE
+            toast("gallery")
+            popupWindow.dismiss()
+        }
+        chooseVideo.setOnClickListener {
+            collectContentType = CollectContentType.VIDEO
+            toast("chooseVideo")
+            popupWindow.dismiss()
+        }
+        chooseFile.setOnClickListener {
+            collectContentType = CollectContentType.FILE
+            toast("chooseFile")
+            popupWindow.dismiss()
         }
     }
 

@@ -80,7 +80,7 @@ fun Context.initPopupWindow(
     width: Int = ViewGroup.LayoutParams.MATCH_PARENT,
     height: Int = ViewGroup.LayoutParams.WRAP_CONTENT
 ): PopupWindow {
-    val itemView = LayoutInflater.from(this).inflate(layoutRes, null)
+    val itemView = LayoutInflater.from(this).inflate(layoutRes, null, false)
     val popupWindow = PopupWindow(itemView, width, height, true)
     itemView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
     return popupWindow
@@ -96,6 +96,8 @@ fun Fragment.initPopupWindow(
  * popupWindow显示在父控件正上方
  */
 fun PopupWindow.showAtMiddleTop(parentView: View): PopupWindow {
+    //选中父控件
+    parentView.isSelected = true
     //获取父控件位置
     val location = IntArray(2)
     parentView.getLocationOnScreen(location)
@@ -112,7 +114,7 @@ fun PopupWindow.showAtMiddleTop(parentView: View): PopupWindow {
         yPos
     )
     setOnDismissListener {
-        if (parentView.isSelected){
+        if (parentView.isSelected) {
             parentView.isSelected = false
         }
     }

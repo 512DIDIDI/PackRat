@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuCollectEditToolsCamera"
+        android:icon="@mipmap/camera"
+        android:title="@string/camera" />
+
+    <item
+        android:id="@+id/menuCollectEditToolsPaint"
+        android:icon="@mipmap/paint"
+        android:title="@string/paint" />
+
+    <item
+        android:id="@+id/menuCollectEditToolsRecord"
+        android:icon="@mipmap/record"
+        android:title="@string/record" />
+
+    <item
+        android:id="@+id/menuCollectEditToolsWeb"
+        android:icon="@mipmap/web"
+        android:title="@string/web" />
+
+    <item
+        android:id="@+id/menuCollectEditToolsGallery"
+        android:icon="@mipmap/gallery"
+        android:title="@string/gallery" />
+
+    <item
+        android:id="@+id/menuCollectEditToolsChooseVideo"
+        android:icon="@mipmap/video_folder"
+        android:title="@string/choose_video" />
+
+    <item
+        android:id="@+id/menuCollectEditToolsChooseFile"
+        android:icon="@mipmap/file_folder"
+        android:title="@string/choose_file" />
+</menu>
