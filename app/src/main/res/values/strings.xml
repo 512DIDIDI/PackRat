@@ -39,4 +39,13 @@
     <string name="addCollectBottomTools">底部工具栏</string>
     <string name="addCollectBottomMore">底部更多操作栏</string>
     <string name="content">内容</string>
+    <string name="add_web">添加网页</string>
+    <string name="icon">icon</string>
+    <string name="camera">拍照</string>
+    <string name="gallery">选择图片</string>
+    <string name="paint">绘画</string>
+    <string name="record">录音</string>
+    <string name="web">网页</string>
+    <string name="choose_file">选择文件</string>
+    <string name="choose_video">选择视频</string>
 </resources>

@@ -1,15 +1,15 @@
 package com.dididi.packrat.ui.collect
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.dididi.packrat.R
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.model.collect.CollectContentType
 import com.dididi.packrat.ui.BaseMainNavFragment
-import com.dididi.packrat.utils.closeSoftInput
-import com.dididi.packrat.utils.onSingleClick
-import com.dididi.packrat.utils.showSoftInput
+import com.dididi.packrat.utils.*
 import kotlinx.android.synthetic.main.fragment_collect_edit.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -63,7 +63,10 @@ class CollectEditFragment : BaseMainNavFragment() {
             activity?.closeSoftInput()
         }
         fragmentCollectEditBottomBarToolsBtn.setOnClickListener {
-
+            it.isSelected = !it.isSelected
+            if (it.isSelected) {
+                initPopupWindow(R.layout.dialog_collect_edit_tools).showAtMiddleTop(it)
+            }
         }
     }
 

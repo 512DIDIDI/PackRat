@@ -37,6 +37,7 @@ ext{
     compileSdkVersion = 28
 
     //app依赖
+    uiExtVersion = '1.0.4'
     lifecycleVersion = '2.2.0'
     roomVersion = '2.2.5'
     smartRefreshVersion = '1.1.0'
