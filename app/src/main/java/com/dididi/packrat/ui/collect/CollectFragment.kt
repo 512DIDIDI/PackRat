@@ -47,9 +47,9 @@ class CollectFragment : BaseHomeNavFragment() {
     }
 
     private fun clickEvent() {
-        fragmentCollectFab.onSingleClick(500L) {
-            mainNavController.navigate(R.id.action_home_to_addCollect)
-        }
+//        fragmentCollectFab.onSingleClick(500L) {
+//            mainNavController.navigate(R.id.action_home_to_addCollect)
+//        }
     }
 
     private fun observe() {

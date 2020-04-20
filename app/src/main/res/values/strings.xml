@@ -42,7 +42,9 @@
     <string name="add_web">添加网页</string>
     <string name="icon">icon</string>
     <string name="camera">拍照</string>
-    <string name="gallery">选择图片</string>
+    <string name="gallery">相册</string>
+    <string name="picture">图片</string>
+    <string name="text">文字</string>
     <string name="paint">绘画</string>
     <string name="record">录音</string>
     <string name="web">网页</string>

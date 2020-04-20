@@ -21,6 +21,7 @@
     <color name="textColorHint">#BDBDBD</color>
     <color name="textColorIcon">#757575</color>
     <color name="textColorRed">#ee2b27</color>
+    <color name="rippleRed">#E74C3C</color>
     <color name="dividerColor">#E0E0E0</color>
     <color name="weChatColor">#1AAD19</color>
 
