@@ -64,59 +64,6 @@ class CollectEditFragment : BaseMainNavFragment() {
             mainNavController.navigateUp()
             activity?.closeSoftInput()
         }
-        fragmentCollectEditBottomBarToolsBtn.setOnClickListener {
-            showToolsPopupWindow(it)
-        }
-    }
-
-    private fun showToolsPopupWindow(parentView: View) {
-        val popupWindow = initPopupWindow(R.layout.dialog_collect_edit_tools).apply {
-            showAtMiddleTop(parentView)
-        }
-        val view = popupWindow.contentView
-        val camera = view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsCamera)
-        val paint = view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsPaint)
-        val record = view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsRecord)
-        val web = view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsWeb)
-        val gallery = view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsGallery)
-        val chooseVideo =
-            view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsChooseVideo)
-        val chooseFile = view.findViewById<WithIconTextView>(R.id.dialogCollectEditToolsChooseFile)
-        camera.setOnClickListener {
-            collectContentType = CollectContentType.IMAGE
-            toast("camera")
-            popupWindow.dismiss()
-        }
-        paint.setOnClickListener {
-            collectContentType = CollectContentType.IMAGE
-            toast("paint")
-            popupWindow.dismiss()
-        }
-        record.setOnClickListener {
-            collectContentType = CollectContentType.AUDIO
-            toast("record")
-            popupWindow.dismiss()
-        }
-        web.setOnClickListener {
-            collectContentType = CollectContentType.WEB
-            toast("web")
-            popupWindow.dismiss()
-        }
-        gallery.setOnClickListener {
-            collectContentType = CollectContentType.IMAGE
-            toast("gallery")
-            popupWindow.dismiss()
-        }
-        chooseVideo.setOnClickListener {
-            collectContentType = CollectContentType.VIDEO
-            toast("chooseVideo")
-            popupWindow.dismiss()
-        }
-        chooseFile.setOnClickListener {
-            collectContentType = CollectContentType.FILE
-            toast("chooseFile")
-            popupWindow.dismiss()
-        }
     }
 
     private fun observe() {
