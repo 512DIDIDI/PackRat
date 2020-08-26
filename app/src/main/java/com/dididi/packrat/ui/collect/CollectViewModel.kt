@@ -27,17 +27,7 @@ class CollectViewModel(application: Application) : BaseViewModel(application) {
         ).collectDao(), PackRatNetUtil.getInstance()
     )
     //收藏数据
-    var collectLiveData = MutableLiveData<List<Collect>>()
-
-    /**
-     * ui获取数据
-     */
-    fun getCollects() {
-        launch {
-            //从数据依赖层读取数据
-            collectLiveData.postValue(collectRepository.getCollects())
-        }
-    }
+    var collectLiveData = MutableLiveData<Collect>()
 
     /**
      * 存储数据
@@ -45,12 +35,16 @@ class CollectViewModel(application: Application) : BaseViewModel(application) {
     fun setCollects(collects: List<Collect>) {
         launch {
             collectRepository.setCollects(collects)
+            collects.forEach {
+                collectLiveData.postValue(it)
+            }
         }
     }
 
     fun setCollect(collect: Collect) {
         launch {
             collectRepository.setCollect(collect)
+            collectLiveData.postValue(collect)
         }
     }
 }

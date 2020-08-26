@@ -41,8 +41,6 @@ class CollectFragment : BaseHomeNavFragment() {
 
     override fun doBusiness() {
         observe()
-        //获取数据
-        viewModel.getCollects()
         clickEvent()
     }
 
@@ -63,7 +61,7 @@ class CollectFragment : BaseHomeNavFragment() {
         })
         //观察收藏数据变化
         viewModel.collectLiveData.observe(this, Observer {
-            mCollectAdapter.updateData(it)
+            mCollectAdapter.insertCollect(it)
         })
     }
 }

@@ -28,7 +28,7 @@ import com.tencent.smtt.sdk.WebView
 class CollectListAdapter(val context: Context) :
     RecyclerView.Adapter<CollectListAdapter.ViewHolder>(), PopupMenu.OnMenuItemClickListener {
 
-    var collectList = emptyList<Collect>()
+    var collectList = mutableListOf<Collect>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_collect, parent, false))
@@ -71,7 +71,11 @@ class CollectListAdapter(val context: Context) :
                     .setOnMenuItemClickListener(this@CollectListAdapter)
             }
             layout.setOnClickListener {
-                Toast.makeText(context, "点击进入详情页", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    "点击进入${collectList[layoutPosition].title}详情页",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -96,8 +100,8 @@ class CollectListAdapter(val context: Context) :
         else -> false
     }
 
-    fun updateData(collectList: List<Collect>) {
-        this.collectList = collectList
+    fun insertCollect(collect: Collect) {
+        this.collectList.add(collect)
         notifyDataSetChanged()
     }
 
