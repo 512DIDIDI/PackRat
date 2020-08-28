@@ -3,10 +3,9 @@ package com.dididi.packrat.ui
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.GravityCompat
-import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.dididi.packrat.R
-import com.dididi.packrat.utils.showPopupMenu
+import com.dididi.uiextlib.ext.showPopupMenu
 import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.android.synthetic.main.fragment_home.*
 

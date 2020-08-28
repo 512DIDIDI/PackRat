@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import com.dididi.packrat.R
 import com.dididi.packrat.ui.BaseFragment
-import com.dididi.packrat.ui.BaseHomeNavFragment
 import com.dididi.packrat.ui.getHomeNav
 
 

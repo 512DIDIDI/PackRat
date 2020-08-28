@@ -3,7 +3,6 @@ package com.dididi.packrat.data.net.interceptor
 import android.content.Context
 import com.dididi.packrat.Config
 import com.dididi.packrat.PackRatApp
-import com.dididi.packrat.utils.log
 import okhttp3.Interceptor
 import okhttp3.Response
 

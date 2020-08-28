@@ -4,7 +4,7 @@ import android.content.Context
 import com.dididi.packrat.data.local.PackRatDatabase
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.net.PackRatNetUtil
-import com.dididi.packrat.utils.log
+import com.dididi.uiextlib.ext.logD
 
 
 /**
@@ -34,7 +34,7 @@ class Repository private constructor(context:Context) {
     suspend fun setCollects(collects: List<Collect>) {
         collects.forEach {
             collectDao.insert(it)
-            log(content = it.content)
+            logD(content = it.content)
         }
     }
 

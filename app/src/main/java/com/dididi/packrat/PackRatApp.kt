@@ -3,7 +3,6 @@ package com.dididi.packrat
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
-import com.dididi.packrat.utils.log
 
 
 /**

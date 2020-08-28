@@ -9,9 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dididi.packrat.R
 import com.dididi.packrat.ui.BaseFragment
-import com.dididi.packrat.ui.BaseMainNavFragment
 import com.dididi.packrat.ui.getMainNav
-import com.dididi.packrat.utils.*
+import com.dididi.uiextlib.ext.*
 import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.layout_forget_password.*

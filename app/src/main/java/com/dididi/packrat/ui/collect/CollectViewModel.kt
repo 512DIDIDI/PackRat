@@ -7,7 +7,7 @@ import com.dididi.packrat.PackRatApp
 import com.dididi.packrat.data.Repository
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.ui.BaseViewModel
-import com.dididi.packrat.utils.toast
+import com.dididi.uiextlib.ext.toast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

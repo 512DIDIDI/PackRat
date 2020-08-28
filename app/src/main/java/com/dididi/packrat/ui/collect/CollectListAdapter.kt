@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dididi.packrat.R
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.model.collect.CollectContentType
-import com.dididi.packrat.utils.showPopupMenu
+import com.dididi.uiextlib.ext.showPopupMenu
 
 
 /**

@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dididi.packrat.R
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.ui.BaseFragment
-import com.dididi.packrat.utils.dismissAllLoading
-import com.dididi.packrat.utils.showLoading
+import com.dididi.uiextlib.ext.dismissAllLoading
+import com.dididi.uiextlib.ext.showLoading
 import kotlinx.android.synthetic.main.fragment_collect.*
 
 

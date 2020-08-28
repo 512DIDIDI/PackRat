@@ -7,11 +7,10 @@ import com.dididi.packrat.R
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.model.collect.CollectContentType
 import com.dididi.packrat.ui.BaseFragment
-import com.dididi.packrat.ui.BaseMainNavFragment
 import com.dididi.packrat.ui.getMainNav
-import com.dididi.packrat.utils.closeSoftInput
-import com.dididi.packrat.utils.onSingleClick
-import com.dididi.packrat.utils.showSoftInput
+import com.dididi.uiextlib.ext.closeSoftInput
+import com.dididi.uiextlib.ext.onSingleClick
+import com.dididi.uiextlib.ext.showSoftInput
 import kotlinx.android.synthetic.main.fragment_collect_edit.*
 import java.text.SimpleDateFormat
 import java.util.*
