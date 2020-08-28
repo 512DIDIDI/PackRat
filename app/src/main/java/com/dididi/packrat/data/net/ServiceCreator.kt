@@ -7,7 +7,6 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 
 
 /**
@@ -29,7 +28,6 @@ object ServiceCreator {
     private val builder = Retrofit.Builder()
         .baseUrl(Config.BASE_URL)
         .client(httpClient)
-        .addConverterFactory(ScalarsConverterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         //配合kotlin协程使用
         .addCallAdapterFactory(CoroutineCallAdapterFactory())

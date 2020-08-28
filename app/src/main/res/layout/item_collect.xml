@@ -37,15 +37,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <!--网页内容-->
-        <com.tencent.smtt.sdk.WebView
-            android:id="@+id/itemCollectWebContent"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="@dimen/dividerGap"
-            android:visibility="gone"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/itemCollectTitle"
-            tools:background="@tools:sample/backgrounds/scenic" />
+
         <!--文本内容-->
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/itemCollectTextContent"

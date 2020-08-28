@@ -1,5 +1,6 @@
 package com.dididi.packrat.ui.login
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -7,7 +8,9 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dididi.packrat.R
+import com.dididi.packrat.ui.BaseFragment
 import com.dididi.packrat.ui.BaseMainNavFragment
+import com.dididi.packrat.ui.getMainNav
 import com.dididi.packrat.utils.*
 import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -15,7 +18,6 @@ import kotlinx.android.synthetic.main.layout_forget_password.*
 import kotlinx.android.synthetic.main.layout_login.*
 import kotlinx.android.synthetic.main.layout_reset_password.*
 import kotlinx.android.synthetic.main.layout_signup.*
-import kotlinx.coroutines.ObsoleteCoroutinesApi
 
 
 /**
@@ -24,7 +26,7 @@ import kotlinx.coroutines.ObsoleteCoroutinesApi
  * @describe 登录页
  */
 
-class LoginFragment : BaseMainNavFragment() {
+class LoginFragment : BaseFragment() {
 
     companion object {
         const val minDistance = 100
@@ -63,9 +65,10 @@ class LoginFragment : BaseMainNavFragment() {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun clickEvent() {
         //滚动监听
-        val gestureDetector = GestureDetector(activity!!, EnterLoginGestureListener())
+        val gestureDetector = GestureDetector(requireActivity(), EnterLoginGestureListener())
         fragmentLoginInitLayout.setOnTouchListener { _, event ->
             gestureDetector.onTouchEvent(event)
         }
@@ -119,7 +122,7 @@ class LoginFragment : BaseMainNavFragment() {
             if (it.errorCode != 0) {
                 toast(it.errorMsg)
             } else {
-                mainNavController.navigate(R.id.action_login_to_home)
+                getMainNav(requireActivity()).navigate(R.id.action_login_to_home)
             }
         })
         //注册监听
@@ -198,7 +201,7 @@ class LoginFragment : BaseMainNavFragment() {
         //登录背景页面
         setMoveDelayAnimation(
             Translation.TranslationY,
-            activity!!.getScreeSize().y.toFloat(),
+            requireActivity().getScreeSize().y.toFloat(),
             startAlpha = 0f, endAlpha = 1f, isEnable = true, strength = strength,
             firstDelay = 0, eachDelay = 100, eachDuration = 600,
             views = *arrayOf(fragmentLoginSignLayout, fragmentLoginDididi)
@@ -206,10 +209,10 @@ class LoginFragment : BaseMainNavFragment() {
         //登录信息控件
         setMoveDelayAnimation(
             Translation.TranslationX,
-            activity!!.getScreeSize().x.toFloat(),
+            requireActivity().getScreeSize().x.toFloat(),
             startAlpha = 0f, endAlpha = 1f, isEnable = true,
             firstDelay = 500, eachDelay = 100, eachDuration = 600,
-            views = *arrayOf(
+            views = arrayOf(
                 fragmentLoginSignInLayoutLogin,
                 fragmentLoginSignInLayoutAccount,
                 fragmentLoginSignInLayoutPassword,

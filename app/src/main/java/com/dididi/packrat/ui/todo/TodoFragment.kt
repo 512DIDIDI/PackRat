@@ -3,7 +3,8 @@ package com.dididi.packrat.ui.todo
 import android.os.Bundle
 import android.view.View
 import com.dididi.packrat.R
-import com.dididi.packrat.ui.BaseHomeNavFragment
+import com.dididi.packrat.ui.BaseFragment
+import com.dididi.packrat.ui.getHomeNav
 
 
 /**
@@ -13,7 +14,7 @@ import com.dididi.packrat.ui.BaseHomeNavFragment
  * @describe
  */
 
-class TodoFragment : BaseHomeNavFragment() {
+class TodoFragment : BaseFragment() {
 
     override fun setLayout() = R.layout.fragment_todolist
 
@@ -22,5 +23,10 @@ class TodoFragment : BaseHomeNavFragment() {
 
     override fun doBusiness() {
 
+    }
+
+    override fun onBackPressed(): Boolean {
+        getHomeNav(requireActivity()).popBackStack()
+        return true
     }
 }

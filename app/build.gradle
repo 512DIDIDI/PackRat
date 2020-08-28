@@ -44,13 +44,12 @@ android {
 }
 
 dependencies {
-    //腾讯tbs组件
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation files('libs/tbs_sdk_thirdapp_v4.3.0.1148_43697_sharewithdownloadwithfile_withoutGame_obfs_20190805_175505.jar')
     //app依赖
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$brvahVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constrainLayoutVersion"
     //jetPack architecture组件
     implementation "androidx.navigation:navigation-fragment:$navVersion"
@@ -72,12 +71,8 @@ dependencies {
     //retrofit组件
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitCoroutineVersion"
-    //视频播放组件
-    implementation "cn.jzvd:jiaozivideoplayer:$videoVersion"
     //图片组件
-    implementation "com.github.chrisbanes:PhotoView:$photoViewVersion"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
     //协程组件

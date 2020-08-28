@@ -15,7 +15,6 @@ import com.dididi.packrat.R
 import com.dididi.packrat.data.model.collect.Collect
 import com.dididi.packrat.data.model.collect.CollectContentType
 import com.dididi.packrat.utils.showPopupMenu
-import com.tencent.smtt.sdk.WebView
 
 
 /**
@@ -44,8 +43,6 @@ class CollectListAdapter(val context: Context) :
         //根据数据类型，显示不同的内容
         when (getItemViewType(position)) {
             CollectContentType.WEB.value -> {
-                holder.webContent.visibility = View.VISIBLE
-                holder.webContent.loadUrl(collectList[position].content)
             }
             CollectContentType.TEXT.value -> {
                 holder.textContent.visibility = View.VISIBLE
@@ -59,7 +56,6 @@ class CollectListAdapter(val context: Context) :
         val layout = itemView.findViewById<CardView>(R.id.itemCollectCv)
         val title = itemView.findViewById<AppCompatTextView>(R.id.itemCollectTitle)
         val more = itemView.findViewById<AppCompatImageView>(R.id.itemCollectMore)
-        val webContent = itemView.findViewById<WebView>(R.id.itemCollectWebContent)
         val textContent = itemView.findViewById<AppCompatTextView>(R.id.itemCollectTextContent)
 
         init {

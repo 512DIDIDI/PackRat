@@ -32,25 +32,17 @@ abstract class PackRatDatabase : RoomDatabase() {
 
     abstract fun collectDao(): CollectDao
 
-    private class PackRatDatabaseCallback(private val scope: CoroutineScope) :
-        RoomDatabase.Callback() {
-        override fun onOpen(db: SupportSQLiteDatabase) {
-            super.onOpen(db)
-        }
-    }
-
     companion object {
         @Volatile
         private var instance: PackRatDatabase? = null
 
-        fun getInstance(context: Context, scope: CoroutineScope): PackRatDatabase {
+        fun getInstance(context: Context): PackRatDatabase {
             return instance ?: synchronized(this) {
                 val database = Room.databaseBuilder(
                     context,
                     PackRatDatabase::class.java,
                     "pack_rat_database"
                 )
-                    .addCallback(PackRatDatabaseCallback(scope))
                     .build()
                 instance = database
                 instance!!

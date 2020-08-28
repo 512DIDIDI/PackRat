@@ -5,9 +5,8 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.dididi.packrat.Config
 import com.dididi.packrat.PackRatApp
-import com.dididi.packrat.data.LoginRepository
+import com.dididi.packrat.data.Repository
 import com.dididi.packrat.data.model.login.LoginResponse
-import com.dididi.packrat.data.net.PackRatNetUtil
 import com.dididi.packrat.ui.BaseViewModel
 
 
@@ -32,7 +31,7 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
      */
     var logOutLiveData = MutableLiveData<LoginResponse>()
 
-    private val repository = LoginRepository.getInstance(PackRatNetUtil.getInstance())
+    private val repository = Repository.getInstance(application)
 
     fun login(username: String, password: String) {
         launch {

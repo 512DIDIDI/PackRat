@@ -3,7 +3,9 @@ package com.dididi.packrat.ui.me
 import android.os.Bundle
 import android.view.View
 import com.dididi.packrat.R
+import com.dididi.packrat.ui.BaseFragment
 import com.dididi.packrat.ui.BaseHomeNavFragment
+import com.dididi.packrat.ui.getHomeNav
 
 
 /**
@@ -13,7 +15,7 @@ import com.dididi.packrat.ui.BaseHomeNavFragment
  * @describe
  */
 
-class MeFragment : BaseHomeNavFragment() {
+class MeFragment : BaseFragment() {
     override fun setLayout() = R.layout.fragment_me
 
     override fun bindView(savedInstanceState: Bundle?, rootView: View) {
@@ -21,5 +23,10 @@ class MeFragment : BaseHomeNavFragment() {
 
     override fun doBusiness() {
 
+    }
+
+    override fun onBackPressed(): Boolean {
+        getHomeNav(requireActivity()).popBackStack()
+        return true
     }
 }

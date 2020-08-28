@@ -3,11 +3,14 @@ package com.dididi.packrat.ui.collect
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.dididi.packrat.data.CollectRepository
-import com.dididi.packrat.data.local.PackRatDatabase
+import com.dididi.packrat.PackRatApp
+import com.dididi.packrat.data.Repository
 import com.dididi.packrat.data.model.collect.Collect
-import com.dididi.packrat.data.net.PackRatNetUtil
 import com.dididi.packrat.ui.BaseViewModel
+import com.dididi.packrat.utils.toast
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 /**
@@ -20,21 +23,36 @@ import com.dididi.packrat.ui.BaseViewModel
 class CollectViewModel(application: Application) : BaseViewModel(application) {
 
     //数据依赖层
-    private val collectRepository: CollectRepository = CollectRepository.getInstance(
-        PackRatDatabase.getInstance(
-            application,
-            viewModelScope
-        ).collectDao(), PackRatNetUtil.getInstance()
-    )
+    private val repo: Repository = Repository.getInstance(application)
+
     //收藏数据
     var collectLiveData = MutableLiveData<Collect>()
+
+    /**
+     * 获取收藏集合
+     */
+    fun getCollects(block: (List<Collect>) -> Unit) = viewModelScope.launch {
+        try {
+            isLoading.value = true
+            block(
+                withContext(Dispatchers.IO) {
+                    repo.getCollects()
+                }
+            )
+            isLoading.value = false
+        }catch (t:Throwable){
+            t.printStackTrace()
+            getApplication<PackRatApp>().toast(t.message)
+            isLoading.value = false
+        }
+    }
 
     /**
      * 存储数据
      */
     fun setCollects(collects: List<Collect>) {
         launch {
-            collectRepository.setCollects(collects)
+            repo.setCollects(collects)
             collects.forEach {
                 collectLiveData.postValue(it)
             }
@@ -43,7 +61,7 @@ class CollectViewModel(application: Application) : BaseViewModel(application) {
 
     fun setCollect(collect: Collect) {
         launch {
-            collectRepository.setCollect(collect)
+            repo.setCollect(collect)
             collectLiveData.postValue(collect)
         }
     }

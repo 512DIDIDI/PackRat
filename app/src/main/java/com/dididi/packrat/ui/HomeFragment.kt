@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
  * @describe 主页fragment，带有bottomBar的fragment
  */
 
-class HomeFragment : BaseMainNavFragment() {
+class HomeFragment : BaseFragment() {
 
     override fun setLayout() = R.layout.fragment_home
 
@@ -31,6 +31,12 @@ class HomeFragment : BaseMainNavFragment() {
         setNavBottomBar()
         setImmersionBar()
         clickEvent()
+    }
+
+    override fun onBackPressed(): Boolean {
+        //执行全局导航的fragment返回栈
+        getMainNav(requireActivity()).popBackStack()
+        return true
     }
 
     /**
@@ -50,8 +56,7 @@ class HomeFragment : BaseMainNavFragment() {
      * 绑定左侧NavigationView与fragment之间的关系
      */
     private fun setNavBottomBar() {
-        val navController = Navigation.findNavController(activity!!, R.id.fragmentMainFragment)
-        NavigationUI.setupWithNavController(fragmentMainNavView, navController)
+        NavigationUI.setupWithNavController(fragmentMainNavView, getHomeNav(requireActivity()))
     }
 
     private fun clickEvent() {
