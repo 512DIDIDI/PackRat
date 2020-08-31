@@ -48,9 +48,18 @@ class CollectFragment : BaseFragment() {
     }
 
     private fun clickEvent() {
-//        fragmentCollectFab.onSingleClick(500L) {
-//            mainNavController.navigate(R.id.action_home_to_addCollect)
-//        }
+        fragmentCollectTextFab.setOnClickListener {
+
+        }
+        fragmentCollectAudioFab.setOnClickListener {
+
+        }
+        fragmentCollectImageFab.setOnClickListener {
+
+        }
+        fragmentCollectWebFab.setOnClickListener {
+
+        }
     }
 
     private fun observe() {
