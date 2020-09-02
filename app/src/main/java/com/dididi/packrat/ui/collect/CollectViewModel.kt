@@ -36,7 +36,11 @@ class CollectViewModel(application: Application) : BaseViewModel(application) {
             isLoading.value = true
             block(
                 withContext(Dispatchers.IO) {
-                    repo.getCollects()
+                    repo.getCollects().apply {
+                        forEach {
+                            collectLiveData.postValue(it)
+                        }
+                    }
                 }
             )
             isLoading.value = false

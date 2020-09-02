@@ -39,10 +39,6 @@ class LoginFragment : BaseFragment() {
 
     override fun setLayout() = R.layout.fragment_login
 
-    override fun bindView(savedInstanceState: Bundle?, rootView: View) {
-
-    }
-
     override fun doBusiness() {
         observe()
         clickEvent()

@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/itemCollectCv"
+    android:id="@+id/itemCollectTextCv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="@dimen/screenLRGap"
@@ -18,7 +18,7 @@
         android:padding="@dimen/elementGap">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/itemCollectTitle"
+            android:id="@+id/itemCollectTextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/textColorDark"
@@ -28,15 +28,14 @@
             tools:text="@sample/data.json/data/title" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/itemCollectMore"
+            android:id="@+id/itemCollectTextMore"
             android:layout_width="@dimen/normalIconSize"
             android:layout_height="@dimen/normalIconSize"
             android:layout_marginStart="@dimen/dividerGap"
             android:background="@mipmap/more"
-            app:layout_constraintBottom_toBottomOf="@id/itemCollectTitle"
+            app:layout_constraintBottom_toBottomOf="@id/itemCollectTextTitle"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        <!--网页内容-->
 
         <!--文本内容-->
         <androidx.appcompat.widget.AppCompatTextView
@@ -44,11 +43,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dividerGap"
-            android:visibility="gone"
             app:layout_constrainedHeight="true"
             app:layout_constraintHeight_max="150dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/itemCollectTitle"
+            app:layout_constraintTop_toBottomOf="@id/itemCollectTextTitle"
             tools:text="@sample/data.json/data/textContent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

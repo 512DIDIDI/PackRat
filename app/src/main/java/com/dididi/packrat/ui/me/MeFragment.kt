@@ -17,9 +17,6 @@ import com.dididi.packrat.ui.getHomeNav
 class MeFragment : BaseFragment() {
     override fun setLayout() = R.layout.fragment_me
 
-    override fun bindView(savedInstanceState: Bundle?, rootView: View) {
-    }
-
     override fun doBusiness() {
 
     }

@@ -35,11 +35,6 @@ abstract class BaseFragment : Fragment() {
     abstract fun setLayout(): Any
 
     /**
-     * 绑定控件
-     */
-    abstract fun bindView(savedInstanceState: Bundle?, rootView: View)
-
-    /**
      * 业务逻辑
      */
     abstract fun doBusiness()
@@ -62,8 +57,6 @@ abstract class BaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //需在onViewCreated中定义，否则kotlinx在fragment中无法使用
-        bindView(savedInstanceState, view)
         doBusiness()
     }
 

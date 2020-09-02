@@ -18,7 +18,5 @@ enum class CollectContentType(val value: Int) {
     //网页收藏
     WEB(3),
     //文本收藏
-    TEXT(4),
-    //文件收藏
-    FILE(5)
+    TEXT(4)
 }

@@ -18,9 +18,6 @@ class TodoFragment : BaseFragment() {
 
     override fun setLayout() = R.layout.fragment_todolist
 
-    override fun bindView(savedInstanceState: Bundle?, rootView: View) {
-    }
-
     override fun doBusiness() {
 
     }

@@ -21,9 +21,6 @@ class HomeFragment : BaseFragment() {
 
     override fun setLayout() = R.layout.fragment_home
 
-    override fun bindView(savedInstanceState: Bundle?, rootView: View) {
-    }
-
     override fun doBusiness() {
         //navigation+DrawerLayout必须搭配supportActionBar使用
         mActivity.setSupportActionBar(fragmentMainToolbar)

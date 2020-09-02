@@ -9,7 +9,7 @@
         android:id="@+id/fragmentCollectContentRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_collect" />
+        tools:listitem="@layout/item_collect_text" />
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/fragmentCollectFab"
@@ -32,6 +32,7 @@
         app:menu_labels_textSize="@dimen/textNormalSize">
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fragmentCollectFabText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_text"
@@ -39,6 +40,7 @@
             app:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fragmentCollectFabWeb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_web"
@@ -46,6 +48,7 @@
             app:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fragmentCollectImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_gallery"
@@ -53,6 +56,7 @@
             app:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fragmentCollectFabAudio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_record"

@@ -35,9 +35,6 @@ class CollectEditFragment : BaseFragment() {
 
     override fun setLayout() = R.layout.fragment_collect_edit
 
-    override fun bindView(savedInstanceState: Bundle?, rootView: View) {
-    }
-
     override fun doBusiness() {
         showSoftInput(fragmentCollectEditTitleEt)
         val dateFormat = SimpleDateFormat("MM-dd HH:mm", Locale.CHINA)
