@@ -6,49 +6,49 @@
     android:paddingBottom="@dimen/dividerGap"
     android:layout_height="wrap_content">
 
-    <com.dididi.packrat.ui.widget.WithIconTextView
+    <com.dididi.packrat.presentation.widget.WithIconTextView
         android:id="@+id/dialogCollectEditToolsCamera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@mipmap/camera"
         app:title="@string/camera"/>
 
-    <com.dididi.packrat.ui.widget.WithIconTextView
+    <com.dididi.packrat.presentation.widget.WithIconTextView
         android:id="@+id/dialogCollectEditToolsPaint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@mipmap/paint"
         app:title="@string/paint"/>
 
-    <com.dididi.packrat.ui.widget.WithIconTextView
+    <com.dididi.packrat.presentation.widget.WithIconTextView
         android:id="@+id/dialogCollectEditToolsRecord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@mipmap/record"
         app:title="@string/record"/>
 
-    <com.dididi.packrat.ui.widget.WithIconTextView
+    <com.dididi.packrat.presentation.widget.WithIconTextView
         android:id="@+id/dialogCollectEditToolsWeb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@mipmap/web"
         app:title="@string/web"/>
 
-    <com.dididi.packrat.ui.widget.WithIconTextView
+    <com.dididi.packrat.presentation.widget.WithIconTextView
         android:id="@+id/dialogCollectEditToolsGallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@mipmap/gallery"
         app:title="@string/gallery"/>
 
-    <com.dididi.packrat.ui.widget.WithIconTextView
+    <com.dididi.packrat.presentation.widget.WithIconTextView
         android:id="@+id/dialogCollectEditToolsChooseVideo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@mipmap/video_folder"
         app:title="@string/choose_video"/>
 
-    <com.dididi.packrat.ui.widget.WithIconTextView
+    <com.dididi.packrat.presentation.widget.WithIconTextView
         android:id="@+id/dialogCollectEditToolsChooseFile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

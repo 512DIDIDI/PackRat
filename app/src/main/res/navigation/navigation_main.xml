@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.dididi.packrat.ui.login.LoginFragment"
+        android:name="com.dididi.packrat.presentation.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.dididi.packrat.ui.HomeFragment"
+        android:name="com.dididi.packrat.presentation.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/collectEditFragment"
-        android:name="com.dididi.packrat.ui.collect.CollectEditFragment"
+        android:name="com.dididi.packrat.presentation.collect.CollectEditFragment"
         android:label="collectEditFragment"
         tools:layout="@layout/fragment_collect_edit"/>
 </navigation>

@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/collect"
-        android:name="com.dididi.packrat.ui.collect.CollectFragment"
+        android:name="com.dididi.packrat.presentation.collect.CollectFragment"
         android:label="CollectFragment"
         tools:layout="@layout/fragment_collect" />
 
     <fragment
         android:id="@+id/todoList"
-        android:name="com.dididi.packrat.ui.todo.TodoFragment"
+        android:name="com.dididi.packrat.presentation.todo.TodoFragment"
         android:label="TodoListFragment"
         tools:layout="@layout/fragment_todolist"/>
 
     <fragment
         android:id="@+id/me"
-        android:name="com.dididi.packrat.ui.me.MeFragment"
+        android:name="com.dididi.packrat.presentation.me.MeFragment"
         android:label="MeFragment"
         tools:layout="@layout/fragment_me" />
 
